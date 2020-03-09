@@ -1,0 +1,308 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{article}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[T2A]{fontenc} % enable Cyrillic fonts
+\usepackage[utf8]{inputenc} % make weird characters work
+\usepackage{graphicx}
+
+\usepackage[english,serbian]{babel}
+%\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
+
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+
+\usepackage{listings}
+
+%\newtheorem{primer}{Пример}[section] %ćirilični primer
+\newtheorem{primer}{Primer}[section]
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ 
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  basicstyle=\scriptsize\ttfamily,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  firstnumber=1000,                % start line enumeration with line 1000
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Python,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\begin{document}
+
+\title{Naslov seminarskog rada\\ \small{Seminarski rad u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet}}
+
+\author{Prvi autor, drugi autor, treći autor, četvrti autor\\ kontakt email prvog, drugog, trećeg, četvrtog autora}
+
+%\date{9.~april 2015.}
+
+\maketitle
+
+\abstract{
+U ovom tekstu je ukratko prikazana osnovna forma seminarskog rada. Obratite pažnju da je pored ove .pdf datoteke, u prilogu i odgovarajuća .tex datoteka, kao i .bib datoteka korišćena za generisanje literature. Na prvoj strani seminarskog rada su naslov, apstrakt i sadržaj, i to sve mora da stane na prvu stranu! Kako bi Vaš seminarski zadovoljio standarde i očekivanja, koristite uputstva i materijale sa predavanja na temu pisanja seminarskih radova. Ovo je samo šablon koji se odnosi na fizički izgled seminarskog rada (šablon koji \emph{morate} da koristite!) kao i par tehničkih pomoćnih uputstava. Pročitajte tekst pažljivo jer on sadrži i važne informacije vezane za zahteve obima i karakteristika seminarskog rada.}
+
+\tableofcontents
+
+\newpage
+
+\section{Uvod}
+\label{sec:uvod}
+
+Kada budete predavali seminarski rad, imenujete datoteke tako da sadrže redni broj teme, temu seminarskog rada, kao i prezimena članova grupe. Precizna uputstva na temu imenovnja će biti data na formi za predaju seminarskog rada. Predaja seminarskih radova biće isključivo preko veb forme, a NE slanjem mejla. Link na formu će biti dat u okviru obaveštenja na strani kursa. Vodite računa da prilikom predavanja seminarskog rada predate samo one fajlove koji su neophodni za ponovno generisanje pdf datoteke. To znači da pomoćne fajlove, kao što su .log, .out, .blg, .toc, .aux i slično, \textbf{ne treba predavati}.
+
+\section{Osnovna uputstva}
+Vaš seminarski rad mora da sadrži najmanje jednu \textbf{sliku}, najmanje jednu \textbf{tabelu} i najmanje \textbf{sedam referenci} u spisku literature. Najmanje jedna slika treba da bude originalna i da predstavlja neke podatke koje ste Vi osmislili da treba da prezentujete u svom radu. Isto važi i za najmanje jednu tabelu. 	Od referenci, neophodno je imati bar jednu \textbf{knjigu}, bar jedan \textbf{naučni članak} iz odgovarajućeg časopisa i bar jednu adekvatnu \textbf{veb adresu}. 
+
+\textbf{Dužina seminarskog rada treba da bude od 10 do 12 strana.} Svako prekoračenje ili potkoračenje biće kažnjeno sa odgovarajućim brojem poena. Eventualno, nakon strane 12, može se javiti samo tekst poglavlja \textbf{Dodatak} koji sadrži nekakav dodatni k\^{o}d, ali je svakako potrebno da rad može da se pročita i razume i bez čitanja tog dodatka. 
+
+Ко жели, може да пише рад ћирилицом. У том случају, неопходно је да су инсталирани одговарајући пакети: texlive-fonts-extra, texlive-latex-extra, texlive-lang-cyrillic, texlive-lang-other. 
+
+Nemojte koristiti stari način pisanja slova, tj ovo:
+\begin{verbatim}
+\v{s} i \v{c} i \'c ...
+\end{verbatim}
+Koristite direknto naša slova:	
+\begin{verbatim}
+š i č i ć ... 
+\end{verbatim}
+
+
+\section{Engleski termini i citiranje}	
+\label{sec:termini_i_citiranje}
+
+Na svakom mestu u tekstu naglasiti odakle tačno potiču informacije. Uz sve novouvedene termine u zagradi naglasiti od koje engleske reči termin potiče. 
+
+Naredni primeri ilustruju način uvođenja enlegskih termina kao i citiranje.
+
+\begin{primer}
+Problem zaustavljanja (eng.~{\em halting problem}) je neodlučiv \cite{haltingproblem}.
+\end{primer}
+
+\begin{primer}
+Za prevođenje programa napisanih u programskom jeziku C može se koristiti GCC kompajler \cite{gcc}.
+\end{primer}
+
+\begin{primer}
+ Da bi se ispitivala ispravost softvera, najpre je potrebno precizno definisati njegovo ponašanje \cite{laski2009software}. 
+\end{primer}
+
+Reference koje se koriste u ovom tekstu zadate su u datoteci {\em seminarski.bib}. Prevođenje u pdf format u Linux okruženju može se uraditi na sledeći način:
+\begin{verbatim}
+pdflatex TemaImePrezime.tex 
+bibtex TemaImePrezime.aux 
+pdflatex TemaImePrezime.tex 
+pdflatex TemaImePrezime.tex 
+\end{verbatim}
+Prvo latexovanje je neophodno da bi se generisao {\em .aux} fajl. {\em bibtex} proizvodi odgovarajući {\em .bbl} fajl koji se koristi za generisanje literature. 
+Potrebna su dva prolaza (dva puta pdflatex) da bi se reference ubacile u tekst (tj da ne bi ostali znakovi pitanja umesto referenci). Dodavanjem novih referenci potrebno je ponoviti ceo postupak.  
+
+
+
+
+
+
+
+
+
+
+
+Broj naslova i podnaslova je proizvoljan. Neophodni su samo Uvod i Zaključak. Na poglavlja unutar teksta referisati se po potrebi. 
+\begin{primer}
+U odeljku \ref{sec:naslov1} precizirani su osnovni pojmovi, dok su zaključci dati u odeljku \ref{sec:zakljucak}.
+\end{primer}
+
+Još jednom da napomenem da nema razloga da pišete:
+\begin{verbatim}
+\v{s} i \v{c} i \'c ...
+\end{verbatim}
+Možete koristiti srpska slova
+\begin{verbatim}
+š i č i ć ... 
+\end{verbatim}
+
+
+
+\section{Slike i tabele}
+\label{slike_i_tabele}
+
+Slike i tabele treba da budu u svom okruženju, sa odgovarajućim naslovima, obeležene labelom da koje omogućava referenciranje. 
+
+\begin{primer} Ovako se ubacuje slika. Obratiti pažnju da je dodato i 
+\begin{verbatim}
+\usepackage{graphicx}
+\end{verbatim}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.75]{panda.jpg}
+\end{center}
+\caption{Pande}
+\label{fig:pande}
+\end{figure}
+
+Na svaku sliku neophodno je referisati se negde u tekstu. Na primer, na slici \ref{fig:pande} prikazane su pande. 
+\end{primer}
+
+\begin{primer} I tabele treba da budu u svom okruženju, i na njih je neophodno referisati se u tekstu. Na primer, u tabeli \ref{tab:tabela1} su prikazana različita poravnanja u tabelama.
+
+\begin{table}[h!]
+\begin{center}
+\caption{Razlčita poravnanja u okviru iste tabele ne treba koristiti jer su nepregledna.}
+\begin{tabular}{|c|l|r|} \hline
+centralno poravnanje& levo poravnanje& desno poravnanje\\ \hline
+a &b&c\\ \hline
+d &e&f\\ \hline
+\end{tabular}
+\label{tab:tabela1}
+\end{center}
+\end{table}
+
+\end{primer}
+
+\section{K\^{o}d i paket listings}
+Za ubacivanje koda koristite paket \textbf{listings}:
+\url{https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings}
+
+\begin{primer}
+Primer ubacivanja koda za programski jezik Python dat je kroz listing \ref{simple}. Za neki drugi programski jezik, treba podesiti odgvarajući programski jezik u okviru defnisanja stila.
+\end{primer}
+\begin{lstlisting}[caption={Primer ubacivanja koda u tekst},frame=single, label=simple]
+# This program adds up integers in the command line
+import sys
+try:
+    total = sum(int(arg) for arg in sys.argv[1:])
+    print 'sum =', total
+except ValueError:
+    print 'Please supply integer arguments'
+\end{lstlisting}
+
+
+\section{Prvi naslov}
+\label{sec:naslov1}
+
+
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+
+
+\subsection{Prvi podnaslov}
+\label{subsec:podnaslov1}
+
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+
+\subsection{Drugi podnaslov}
+\label{subsec:podnaslov2}
+
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+
+
+\subsection{... podnaslov}
+\label{subsec:podnaslovN}
+
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+
+\section{n-ti naslov}
+\label{sec:naslovN}
+
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+
+\subsection{... podnaslov}
+\label{subsec:podnaslovK}
+
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+
+\subsection{... podnaslov}
+\label{subsec:podnaslovM}
+
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+
+
+\section{Zaključak}
+\label{sec:zakljucak}
+
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+
+
+\addcontentsline{toc}{section}{Literatura}
+\appendix
+\bibliography{seminarski} 
+\bibliographystyle{plain}
+
+\appendix
+\section{Dodatak}
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+
+
+\end{document}
