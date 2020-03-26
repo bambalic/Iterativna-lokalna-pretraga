@@ -76,7 +76,7 @@
 
 \title{Iterativna lokalna pretraga\\ \small{Seminarski rad u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet}}
 
-\author{Aleksa Voštić, Lazar Perišić, Anđela Križan, Anđela Janošević\\ kontakt email prvog, drugog, trećeg, četvrtog autora}
+\author{Aleksa Voštić, Lazar Perišić, Anđela Križan, Anđela Janošević\\ kontakt email prvog, drugog, trećeg, andjelaj197@gmail.com}
 
 %\date{9.~april 2015.}
 
@@ -87,9 +87,42 @@
 \tableofcontents
 
 \newpage
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pocetak dela (za menjanje pitati autora ovog dela)
+% autor: Anđela Janošević
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Uvod}
 \label{sec:uvod}
+
+Važnost algoritama visokih performansi za rešavanje teških optimizacionih problema ne može se potceniti, i u mnogim
+slučajevima jedine dostupne metode su metaheuristike. Prilikom dizajniranja metaheuristike, poželjno je da bude jednostavna, i
+konceptualno i u praksi. Prirodno, takođe mora biti efikasna i, ako je moguće, opšte namene. Ako metaheuristiku posmatramo kao
+jednostavnu konstrukciju za usmeravanje (specifične za problem) heuristike, idealan slučaj je kada se metaheuristika može
+koristiti bez ikakvog znanja o zavisnosti od problema.\\ Kako su metaheuristike postale sve sofisticiranije, ovaj idealan
+slučaj je gurnut u stranu u potrazi za većim performansama. Kao posledica toga, znanje specifično za problem mora biti
+inkorporirano u metaheuristiku da bi se dostiglo vrhunsko stanje. Nažalost, ovo čini granicu između heuristike i
+metaheuristike nejasnom, i mi rizikujemo da izgubimo i jednostavnost i opštost. Da bi se suprotstavili tome, približavamo se
+modularnosti i pokušavamo da dekompozitujemo metaheuristički algoritam na nekoliko delova, svaki sa svojom specifičnošću.
+Konkretno, želeli bismo imati potpuno opšti namenski deo, dok bi svako znanje specifično za problem ugrađeno u metaheuristiku
+bilo odvojeno u drugi deo. Konačno, u najvećoj mogućoj meri, radije ostavljamo netaknutu ugrađenu heuristiku (koju treba
+"voditi") zbog svoje potencijalne složenosti. \textbf{Iterativna lokalna pretraga} pruža jednostavan način da se zadovolje svi
+ovi zahtevi.\\
+Suština iterativne lokalne pretrage je da se izbegne zaglavljivanje u lokalnom minimumu tako što u više iteracija primenjuje
+lokalnu pretragu na novo generisano početno rešenje. \\ 
+Svrha ovog rada je da se prikaže detaljan opis iterativne lokalne pretrage.
+Do sada je, uprkos svojoj konceptualnoj jednostavnosi, dovela do brojnih vrhunskih rezultata bez korišćenja previše znanja
+specifičnog za problem.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Kraj dela (za menjanje pitati autora ovog dela)
+% autor: Anđela Janošević
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
