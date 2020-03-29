@@ -238,10 +238,6 @@ Za određene probleme, često se kao lokalna pretraga koristi metaheuristika pop
 % autor: Andjela Krizan
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%
-%%%PRIMENE
 %%Č č
 %%Ć ć
 %%Dž dž
@@ -254,16 +250,30 @@ ILP algoritmi su uspešno primenjeni u raznim kombinatornim optimizacionim probl
 \subsection{Problem trgovackog putika}
 Problem trgovačkog putnika je verovatno najpoznatiji kombinatorni optimizacijski problem. U suštini, on služi za testiranje izrade novih ideja algoritama, a dobre performanse na Problemu trgovačkog putnika se uzimaju kao dokaz vrednosti takvih ideja. Kao i mnoge metaheuristike, neki od prvih ILP algoritama su testirani na ovom problemu. 
 Baum je prvi to uradio, osmislivši metodu ponovljenog spusta. On je u svojim testovima koristio tehniku 2-opt(pojava udvojenih razmena) kao ugradjenu heuristiku, nasumične 3-promene kao preturbacije, i nametnuo je dužinu obilaska da se smanjuje (odatle je i ime ove metode). Njegovi rezultati nisu bili zadovoljavajući, delom jer je razmatrao ne-Euklidski Problem trgovačkog putnika koji je suštinski teži u praksi od Euklidskog.
-LSMC(Large-step Markov chain) algoritam je doneo velika poboljsanja. Martin, Otto i Felten su u ovom algoritmu koristili simulirano kaljenje kao optimizaciju iz koje je izvedeno ime algoritma.
+
+LSMC(Large-step Markov chain) algoritam je doneo velika poboljšanja. Martin, Otto i Felten su u ovom algoritmu koristili simulirano kaljenje kao optimizaciju iz koje je izvedeno ime algoritma. Oni su razmotrili primenu 3-opt lokalne pretrage i Lin-Kernighan heuristike (LK) koji je najbolji algoritam lokalne pretrage za Problem trgovačkog putika. Ali, kljucni momenat njihovog rada je uvođenje duplog mosta za perturbaciju, što je bilo bitno za dalji rad na Euklidskom Problemu trgovačkog putnika.
+
+D.S.Jonhson je za ILS koristio LK kao lokalnu pretragu, i osmislio je naziv  "iterated Lin-Kernighan"(ILK). Razlike u imlementaciji u odnosu na LSMC su:
+\begin{itemize}
+  \item potezi između dva mosta su nasumični
+  \item cene se poboljšavaju(prihvataju se samo bolje)
+\end{itemize}
+Od ovih prvih studija predložene su i druge varijante ILS-a, a Johnson i McGeoch su dali sažetak stanja 1997 godine. 
+ILS za Problem trgovackog putnika sa najvišim performansama je trenutno lancani LK kodiran od strane Applegate, Bixby, Chivatal i Cook, koji su detaljno opisali implementaciju. Oni su vršili eksperimente na ovom kodu uzimajući u obzir druge module:
+\begin{itemize}
+  \item inicijalni obilazak
+  \item izbori implementacije LK heuristike
+  \item tipovi perturbacija
+\end{itemize}
+Njihovi testovi su vršeni na velikim instancama do čak 25 milion gradova.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Kraj dela (za menjanje pitati autora ovog dela)
 % autor: Andjela Krizan
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Zaključak}
 \label{sec:zakljucak}
 
