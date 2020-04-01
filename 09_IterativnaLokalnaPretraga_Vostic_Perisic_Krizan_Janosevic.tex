@@ -84,9 +84,24 @@
 
 \maketitle
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pocetak dela (za menjanje pitati autora ovog dela)
+% autor: Lazar Perisic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \abstract{U ovom seminarskom radu prikazana je iterativna lokalna pretraga. Osnovna ideja ove metaheuristike je da se pretraga fokusira na samo deo mogućih rešenja koja dobija od ugrađene heuristike. 
 Iako jednostavna zbog svoje modularnosti, pokazuje odlične rezultate u praksi. U radu je prikazana njena implementacija, kao i pristup kojim se došlo do nje. 
 Takođe, prikazane su neke od primena ovog algoritma.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Kraj dela (za menjanje pitati autora ovog dela)
+% autor: Lazar Perisic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \tableofcontents
 
@@ -109,7 +124,7 @@ metaheuristike nejasnom, i mi rizikujemo da izgubimo i jednostavnost i opštost.
 modularnosti i pokušavamo da dekompozitujemo metaheuristički algoritam na nekoliko delova, svaki sa svojom specifičnošću.
 Konkretno, želeli bismo imati potpuno opšti namenski deo, dok bi svako znanje specifično za problem ugrađeno u metaheuristiku
 bilo odvojeno u drugi deo. Konačno, u najvećoj mogućoj meri, radije ostavljamo netaknutu ugrađenu heuristiku (koju treba
-"voditi") zbog svoje potencijalne složenosti. \textbf{Iterativna lokalna pretraga} pruža jednostavan način da se zadovolje svi
+\q{voditi}) zbog svoje potencijalne složenosti. \textbf{Iterativna lokalna pretraga} pruža jednostavan način da se zadovolje svi
 ovi zahtevi.\\
 Suština iterativne lokalne pretrage je da se izbegne zaglavljivanje u lokalnom minimumu tako što u više iteracija primenjuje
 lokalnu pretragu na novo generisano početno rešenje. \\ 
@@ -251,7 +266,7 @@ Baum je prvi to uradio, osmislivši metodu ponovljenog spusta. On je u svojim te
 
 LSMC (Large-step Markov chain) algoritam je doneo velika poboljšanja. Martin, Otto i Felten su u ovom algoritmu koristili simulirano kaljenje kao optimizaciju iz koje je izvedeno ime algoritma. Oni su razmotrili primenu 3-opt lokalne pretrage i Lin-Kernighan heuristike (LK) koji je najbolji algoritam lokalne pretrage za Problem trgovačkog putika. Ali, ključni momenat njihovog rada je uvođenje duplog mosta za perturbaciju, što je bilo bitno za dalji rad na Euklidskom Problemu trgovačkog putnika.
 
-D.S.Jonhson je za ILS koristio LK kao lokalnu pretragu, i osmislio je naziv  "iterated Lin-Kernighan" (ILK). Razlike u imlementaciji u odnosu na LSMC su:
+D.S.Jonhson je za ILS koristio LK kao lokalnu pretragu, i osmislio je naziv \q{iterated Lin-Kernighan} (ILK). Razlike u imlementaciji u odnosu na LSMC su:
 \begin{itemize}
   \item potezi između dva mosta su nasumični
   \item cene se poboljšavaju (prihvataju se samo bolje)
