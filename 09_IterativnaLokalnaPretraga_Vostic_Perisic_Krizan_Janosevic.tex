@@ -247,14 +247,14 @@ ILS algoritmi su uspešno primenjeni u raznim kombinatornim optimizacionim probl
 \subsection{Problem trgovackog putika}
 Problem trgovačkog putnika je verovatno najpoznatiji kombinatorni optimizacijski problem. U suštini, on služi za testiranje izrade novih ideja algoritama, a dobre performanse na Problemu trgovačkog putnika se uzimaju kao dokaz vrednosti takvih ideja. Kao i mnoge metaheuristike, neki od prvih ILS algoritama su testirani na ovom problemu. 
 
-Baum je prvi to uradio, osmislivši metodu ponovljenog spusta. On je u svojim testovima koristio tehniku 2-opt(pojava udvojenih razmena) kao ugradjenu heuristiku, nasumične 3-promene kao preturbacije, i smanjivao je dužinu obilaska (odatle je i ime ove metode). Njegovi rezultati nisu bili zadovoljavajući, delom jer je razmatrao ne-Euklidski Problem trgovačkog putnika koji je suštinski teži u praksi od Euklidskog.
+Baum je prvi to uradio, osmislivši metodu ponovljenog spusta. On je u svojim testovima koristio tehniku 2-opt (pojava udvojenih razmena) kao ugrađenu heuristiku, nasumične 3-promene kao perturbacije, i smanjivao je dužinu obilaska (odatle je i ime ove metode). Njegovi rezultati nisu bili zadovoljavajući, delom jer je razmatrao ne-Euklidski Problem trgovačkog putnika koji je suštinski teži u praksi od Euklidskog.
 
-LSMC(Large-step Markov chain) algoritam je doneo velika poboljšanja. Martin, Otto i Felten su u ovom algoritmu koristili simulirano kaljenje kao optimizaciju iz koje je izvedeno ime algoritma. Oni su razmotrili primenu 3-opt lokalne pretrage i Lin-Kernighan heuristike (LK) koji je najbolji algoritam lokalne pretrage za Problem trgovačkog putika. Ali, kljucni momenat njihovog rada je uvođenje duplog mosta za perturbaciju, što je bilo bitno za dalji rad na Euklidskom Problemu trgovačkog putnika.
+LSMC (Large-step Markov chain) algoritam je doneo velika poboljšanja. Martin, Otto i Felten su u ovom algoritmu koristili simulirano kaljenje kao optimizaciju iz koje je izvedeno ime algoritma. Oni su razmotrili primenu 3-opt lokalne pretrage i Lin-Kernighan heuristike (LK) koji je najbolji algoritam lokalne pretrage za Problem trgovačkog putika. Ali, ključni momenat njihovog rada je uvođenje duplog mosta za perturbaciju, što je bilo bitno za dalji rad na Euklidskom Problemu trgovačkog putnika.
 
-D.S.Jonhson je za ILS koristio LK kao lokalnu pretragu, i osmislio je naziv  "iterated Lin-Kernighan"(ILK). Razlike u imlementaciji u odnosu na LSMC su:
+D.S.Jonhson je za ILS koristio LK kao lokalnu pretragu, i osmislio je naziv  "iterated Lin-Kernighan" (ILK). Razlike u imlementaciji u odnosu na LSMC su:
 \begin{itemize}
   \item potezi između dva mosta su nasumični
-  \item cene se poboljšavaju(prihvataju se samo bolje)
+  \item cene se poboljšavaju (prihvataju se samo bolje)
 \end{itemize}
 Od ovih prvih studija predložene su i druge varijante ILS-a, a Johnson i McGeoch su dali sažetak stanja 1997 godine. 
 ILS za Problem trgovačkog putnika sa najvišim performansama je trenutno lančani LK kodiran od strane Applegate, Bixby, Chivatal i Cook, koji su detaljno opisali implementaciju. Oni su vršili eksperimente na ovom kodu uzimajući u obzir druge module:
@@ -263,10 +263,10 @@ ILS za Problem trgovačkog putnika sa najvišim performansama je trenutno lanča
   \item izbori implementacije LK heuristike
   \item tipovi perturbacija
 \end{itemize}
-Njihovi testovi su vršeni na velikim instancama do čak 25 milion gradova. Za potez sa dvostrukim mostom, razmatrali su efekat forsiranja ivica da budu kratke i istraživali su nasumične poteze sa dva mosta. Oni su zaključili da se najbolje performanse postižu kada su potezi dvostukog mosta usmereni prema kratkim dužinama ivica. Međutim, jačinu usmeravanja ka kratkim ivicama treba prilagoditi raspoloživom vremenu računanja, tj. što je kraće vreme računanja, ivice bi trebalo da budu kraće. Pri testiranju uticaja inicijalnog obilaska, došli su do zakljucka da najgore performanse postižu slučajni početni obilasci, dok su najbolje rezultate dali Kristofidesov algoritam i pohlepna heuristika. 
+Njihovi testovi su vršeni na velikim instancama do čak 25 milion gradova. Za potez sa dvostrukim mostom, razmatrali su efekat forsiranja ivica da budu kratke i istraživali su nasumične poteze sa dva mosta. Oni su zaključili da se najbolje performanse postižu kada su potezi dvostukog mosta usmereni prema kratkim dužinama ivica. Međutim, jačinu usmeravanja ka kratkim ivicama treba prilagoditi raspoloživom vremenu računanja, tj. što je kraće vreme računanja, ivice bi trebalo da budu kraće. Pri testiranju uticaja inicijalnog obilaska, došli su do zaključka da najgore performanse postižu slučajni početni obilasci, dok su najbolje rezultate dali Kristofidesov algoritam i pohlepna heuristika. 
 
 Osim ovih radova, predložena su još dva ILS algoritma za Problem trgovačkog putnika. Thomas Stützle je ispitiao ponašanje ILS algoritma za Problem trgovačkog putnika, i zaključio da ILS algoritmi stagniraju tokom dugog perioda izvođenja, što je i očekivano pri vršenju intenzivnog pretraživanja. Da bi se izbeglo stagniranje, predloženo je ponovno pokretanje i poseban kriterijum prihvatanja zbog variranja pretrage. Cilj te strategije je da prisiliti pretragu da nastavi od pozicije koja je veća od odredjenog minimalnog rastojanja od trenutne pozicije. Rezultati pokazuju da je ova metoda veoma efikasna, čak i kada se koristi samo 3-opt lokalna pretraga. 
-%% sad ide implementacija, TODO
+
 
 Drugi ILS algoritam od 1997. godine su razvili Katayama i Marisha. Oni su uveli novi mehanizam perturbacije i nazvali su ga genetska transformacija. Mehanizam genetske transformacije koristi dva obilaska, jedan od njih predstavlja do sada najbolje rešenje, a drugi je obilazak koji je pronađen ranije u pretrazi. Eksperimenti sa iterativnim LK algoritmom koji koristi genetsku transformaciju umesto standardnog dvostrukog mosta pokazuju da je pristup vrlo efikasan.
 %%Č č
@@ -419,10 +419,33 @@ Zaključak je da, uz to što je poprililčno efikasan, što možemo primetiti sa
 % autor: Anđela Križan, Aleksa Voštić
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Kraj dela (za menjanje pitati autore ovog dela)
+% autor: Anđela Janošević
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \section{Zaključak}
 \label{sec:zakljucak}
 
+ILS poseduje mnoge poželjne karakteristike metaheuristike: jednostavan je, lagan za implementaciju, robustan i veoma efikasan. Suštinska ideja ILS-a leži u fokusiranju pretraživanja ne na celokupnom prostoru rešenja, već na manjem potprostoru koji je definisan rešenjima koja su lokalno optimalna za datu optimizaciju. Uspeh ILS-a leži u pristrasnom uzorkovanju ovog skupa lokalnih optimuma. Koliko će se ovaj pristup pokazati efikasnim, uglavnom zavisi od izbora lokalne pretrage, perturbacija i kriterijuma prihvatanja. Interesantno je da čak i kada se koriste naivne implementacije ovih delova, ILS može učiniti i mnogo bolje od slučajnog ponovnog pokretanja. Ali sa daljim radom takvim da su različiti moduli dobro prilagođeni trenutnom problemu, ILS može često postati konkurentan ili čak vrhunski algoritam. Ova dihotomija je važna jer se može izvršiti optimizacija algoritma progresivno, i tako se ILS može zadržati na bilo kojem željenom nivou jednostavnosti. Ovo, plus modularna priroda iterativne lokalne pretrage vodi do kratkog vremena razvoja i daje ILS-u prednost u odnosu na složenije metaheuristike. Kao primer toga, podsetimo se da ILS u osnovi tretira ugrađenu heuristiku kao crnu kutiju; tada je unapređivanje ILS-a da bi se iskoristio novi, bolji algoritam lokalne pretrage skoro neposredan. Zbog svih ovih karakteristika verujemo da je ILS obećavajući i moćan algoritam za rešavanje stvarnih kompleksnih problema u industriji i uslugama, u oblastima od finansija do upravljanja proizvodnjom i logistikom.\\
+Za kraj, imajmo na umu da iako je sav ovaj pregled dat u kontekstu rešavanja problema kombinatorne optimizacije, u stvarnosti se veći deo onoga što smo obuhvatili može direktno preneti na probleme kontinuirane optimizacije. Gledajući unapred prema budućim pravcima istraživanja, očekujemo da će se ILS primeniti na nove vrste problema. Neki izazovni primeri su: (i) problemi gde su ograničenja vrlo ozbiljna i zato većina metaheuristika ne uspeva; (ii) višekriterijumski \eng{multi-objective} problemi, približavanje stvarnim problemima; (iii) dinamički problemi ili problemi u realnom vremenu \eng{real-time} u kojima podaci problema variraju tokom procesa rešavanja.
+Istraživanje ovih problema je jedva počelo, ali trebalo bi da dovede do algoritama lokalnog pretraživanja visokih performansi.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Kraj dela (za menjanje pitati autore ovog dela)
+% autor: Anđela Janošević
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \addcontentsline{toc}{section}{Literatura}
