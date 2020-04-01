@@ -333,55 +333,6 @@ koja će zavisiti od konstantnog parametra  (parametar temperature). \\
 
 ILS se takodje može koristiti i za rešavanje flow-shop problema korišćenjem nekoliko stanja u nizu. Za svako stanje bi postojalo, umesto samo jedne mašine, sada više grupa identičnih mašina. Njihova metaheuristika bi imala dve faze koje se ponavljaju iterativno. U prvoj fazi bi se operacije dodelile mašinama i početno stanje bi se konstruisalo. U drugoj fazi bi se koristio ILS kako bi se pronašao bolji raspored za svaku mašinu u svakom stanju modifikovanjem niza operacija svake od mašina. Proces bi se ponavljao sve dok se zadovoljavajuće rešenje ne dobije. \cite{applyingIteratedLocalSearchtothePermutation} \cite{handbookOfMetaheuristics}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Pocetak dela (za menjanje pitati autore ovog dela)
-% autor: Anđela Križan, Aleksa Voštić
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{center}
- \begin{tabular}{||c c c c c c c c||} 
- \hline
- Problem & SAOP & Spirit & GAChen & GAMIT & ILS & GAPAC &\\ [0.5ex] 
- \hline\hline
- 20x5 & 1.39 (\le0.5) & 5.22 (\le0.5) & 3.82 (\le0.5) & 4.21 (\le0.5) & 0.24 (4.01) & 8.98 (\le0.5) &\\ [1ex]
- \hline
- 20x10 & 2.66 (\le0.5) & 5.86 (\le0.5) & 4.89 (\le0.5) & 5.40 (\le0.5) & 0.77 (4.09) & 13.61 (\le0.5) &\\ [1ex]
- \hline
- 20x20 & 2.31 (\le0.5) & 4.58 (\le0.5) & 4.17 (0.60) & 4.53 (\le0.5) & 0.85 (4.63) & 11.03 (0.57) &\\ [1ex]
- \hline
- 50x5 & 0.69 (\le0.5) & 2.03 (\le0.5) & 2.09 (0.77) & 3.11 (\le0.5) & 0.12 (6.38) & 6.50 (0.58) &\\ [1ex]
- \hline
- 50x10 & 4.25 (0.60) & 5.88 (0.52) & 6.60 (1.00) & 8.38 (0.52) & 2.01 (9.94) & 16.41 (0.83) &\\ [1ex] 
- \hline
- 50x20 & 5.13 (1.04) & 7.21 (0.97) & 8.03 (1.45) & 10.65 (0.96) & 3.29 (11.82) & 18.56 (1.28) &\\ [1ex] 
- \hline
- 100x5 & 0.40 (0.60) & 1.06 (0.53) & 1.32 (1.79) & 5.41 (0.52) & 0.11 (15.31) & 5.32 (1.07) &\\ [1ex] 
- \hline
- 100x10 & 1.88 (1.10) & 5.07 (1.03) & 3.75 (2.26) & 12.05 (1.02) & 0.66 (18.79) & 12.34 (1.57) &\\ [1ex] 
- \hline
- 100x20 & 5.21 (2.09) & 10.15 (2.00) & 7.94 (3.24) &18.24 (1.99) & 3.17 (24.04) & 18.25 (2.55) &\\ [1ex] 
- \hline
- 200x10 & 1.56 (2.29) & 9.03 (2.25) & 2.70 (5.97) & 7.52 (2.20) & 0.49 (33.73) & 9.75 (3.24) &\\ [1ex] 
- \hline
- 200x20 & 4.83 (4.59) & 16.17 (4.51) & 7.07 (8.18) & 15.35 (4.50) & 2.74 (41.80) & 17.06 (5.46) &\\ [1ex] 
- \hline
- 500x20 & 3.40 (39.48) & 13.57 (39.70) & 4.61 (55.30) & 12.17 (37.82) & 1.29 (192.03) & 12.61 (30.62) &\\ [1ex] 
- \hline
- \hline
- Average & 2.81 (4.42) & 7.15 (4.38) & 4.75 (6.77) & 8.92 (4.21) & 1.31 (30.55) & 12.53 (4.04) &\\ [1ex] 
- \hline
- \end{tabular}
-\end{center}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Kraj dela (za menjanje pitati autore ovog dela)
-% autor: Anđela Križan, Aleksa Voštić
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \subsubsection{Job shop scheduling problem}
 Problem raspoređivanja poslova (JSSP) je popularni problem optimizacije u informatici i operativnog istraživanja.
 
@@ -396,6 +347,76 @@ Drugi način su izložili Balas i Vazacopoulos koji bi koristio promenljivu heur
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Kraj dela (za menjanje pitati autora ovog dela)
 % autor: Aleksa Voštić
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pocetak dela (za menjanje pitati autore ovog dela)
+% autor: Anđela Križan, Aleksa Voštić
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Efektivnost i efikasnost ILS algoritma}
+U narednoj tabeli ćemo demostrirati rezultate poređenja različitih poznatih algoritama primenjenim na Flow shop problemu kao i samo ponašanja ILS-a u odnosu na ostale. \\
+Svi algoritmi su implementirani pod istim uslovima i pokretani na istoj mašini: programirani su na jeziku Delphi 6.0, pokretani na Athlon XP 1600+ (1400MHz) koriščenjem 512 MBytes RAM memorije. 
+
+Koristićemo instance koje je ustanovio Taillard, odnosno različite kombinacije poslova (20, 50, 100, 200, 500) sa datim mašinama (5, 10, 20) za koje je ustanovljeno da su izuzetno teški problemi pa samim time su i dobri primeri merila algoritama. Parametar po kojem ćemo upoređivati algoritme je dat sledećom formulom:
+
+\begin{gather*}
+\textrm{\% Vremenskog uvećanja u odnosu na optimalno rešenje} = \frac{Alg_{rez} - Opt_{rez}}{Opt_{rez}} \cdot100
+\end{gather*}
+gde je $Alg_{rez}$ rezultat dobijen korišćenjem nekog od algoritama za odgovarajuću instancu, a $Opt_{rez}$ je optimalno rešenje date instance. Ono što se odma može primetiti jeste da ukoliko je ovaj procenat visok, to znači da se algoritam ponaša loše, jer za toliko odstupa od optimalnog rezultata.
+\\
+\begin{table}[H]
+\caption{Prosečni porast vremena potrebnog za isvršavanje u odnosu na najbolje poznato rešenje izraženo u procentima i prosečno procesorsko vreme u sekundama (navedeno u zagradi)
+\cite{aComprehensiveReviewAndEvaluationOfPermutationFlowshopHeuristics}}
+\label{tab:alg}
+\begin{center}
+ \begin{tabular}{c c c c c c c} 
+ \hline
+ Problem & SAOP & Spirit & GAChen & GAMIT & ILS &\\ [0.5ex] 
+ \hline\hline
+ 20x5 & 1.39 ($\leq$0.5) & 5.22 ($\leq$0.5) & 3.82 ($\leq$0.5) & 4.21 ($\leq$0.5) & 0.24 (4.01) &\\ [1ex]
+ \hline
+ 20x10 & 2.66 ($\leq$0.5) & 5.86 ($\leq$0.5) & 4.89 ($\leq$0.5) & 5.40 ($\leq$0.5) & 0.77 (4.09) &\\ [1ex]
+ \hline
+ 20x20 & 2.31 ($\leq$0.5) & 4.58 ($\leq$0.5) & 4.17 (0.60) & 4.53 ($\leq$0.5) & 0.85 (4.63) &\\ [1ex]
+ \hline
+ 50x5 & 0.69 ($\leq$0.5) & 2.03 ($\leq$0.5) & 2.09 (0.77) & 3.11 ($\leq$0.5) & 0.12 (6.38) &\\ [1ex]
+ \hline
+ 50x10 & 4.25 (0.60) & 5.88 (0.52) & 6.60 (1.00) & 8.38 (0.52) & 2.01 (9.94) &\\ [1ex] 
+ \hline
+ 50x20 & 5.13 (1.04) & 7.21 (0.97) & 8.03 (1.45) & 10.65 (0.96) & 3.29 (11.82) &\\ [1ex] 
+ \hline
+ 100x5 & 0.40 (0.60) & 1.06 (0.53) & 1.32 (1.79) & 5.41 (0.52) & 0.11 (15.31) &\\ [1ex] 
+ \hline
+ 100x10 & 1.88 (1.10) & 5.07 (1.03) & 3.75 (2.26) & 12.05 (1.02) & 0.66 (18.79) &\\ [1ex] 
+ \hline
+ 100x20 & 5.21 (2.09) & 10.15 (2.00) & 7.94 (3.24) &18.24 (1.99) & 3.17 (24.04) &\\ [1ex] 
+ \hline
+ 200x10 & 1.56 (2.29) & 9.03 (2.25) & 2.70 (5.97) & 7.52 (2.20) & 0.49 (33.73) &\\ [1ex] 
+ \hline
+ 200x20 & 4.83 (4.59) & 16.17 (4.51) & 7.07 (8.18) & 15.35 (4.50) & 2.74 (41.80) &\\ [1ex] 
+ \hline
+ 500x20 & 3.40 (39.48) & 13.57 (39.70) & 4.61 (55.30) & 12.17 (37.82) & 1.29 (192.03) &\\ [1ex] 
+ \hline
+ \hline
+ Average & 2.81 (4.42) & 7.15 (4.38) & 4.75 (6.77) & 8.92 (4.21) & 1.31 (30.55) &\\ [1ex] 
+ \hline
+ \end{tabular}
+\end{center}
+\end{table}
+
+
+
+Ono što se može uvideti iz priložene \autoref{tab:alg}, da je ILS najefikasniji i daje najbolje rezultate, međutim, u proseku zahteva i najviše procesorskog vremena (malo više od pola minute) i ovaj primer je tako konstruisan da nije ograničeno vremensko ograničenje rada algoritama na računaru. Međutim, ukoliko uvedemo kriterijum zaustavljanja, odnosno ograničimo procesorsko vreme, i u tom slučaju će ILS izaći kao pobednik.
+
+Zaključak je da, uz to što je poprililčno efikasan, što možemo primetiti sa sprovedenih testova, on je takođe poprilično jednostavan za kodiranje, dosta jednostavniji od ostalih navedenih. Na to treba dodati i činjenicu da se ILS može unaprediti sa dosta moćnijom lokalnom pretragom.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Kraj dela (za menjanje pitati autore ovog dela)
+% autor: Anđela Križan, Aleksa Voštić
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Zaključak}
