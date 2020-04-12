@@ -21,6 +21,8 @@
 % \usepackage{pseudocode}
 \usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage{tabularx}
+\usepackage{adjustbox}
 %\newtheorem{primer}{Пример}[section] %ćirilični primer
 \newtheorem{primer}{Primer}[section]
 
@@ -384,11 +386,13 @@ Koristićemo instance koje je ustanovio Taillard, odnosno različite kombinacije
 \end{gather*}
 gde je $Alg_{rez}$ rezultat dobijen korišćenjem nekog od algoritama za odgovarajuću instancu, a $Opt_{rez}$ je optimalno rešenje date instance. Ono što se odma može primetiti jeste da ukoliko je ovaj procenat visok, to znači da se algoritam ponaša loše, jer za toliko odstupa od optimalnog rezultata.
 \\
+
 \begin{table}[H]
 \caption{Prosečni porast vremena potrebnog za isvršavanje u odnosu na najbolje poznato rešenje izraženo u procentima i prosečno procesorsko vreme u sekundama (navedeno u zagradi)
 \cite{aComprehensiveReviewAndEvaluationOfPermutationFlowshopHeuristics}}
 \label{tab:alg}
 \begin{center}
+    \begin{adjustbox}{max width=1.0\linewidth,center}
  \begin{tabular}{c c c c c c c} 
  \hline
  Problem & SAOP & Spirit & GAChen & GAMIT & ILS &\\ [0.5ex] 
@@ -421,8 +425,11 @@ gde je $Alg_{rez}$ rezultat dobijen korišćenjem nekog od algoritama za odgovar
  Average & 2.81 (4.42) & 7.15 (4.38) & 4.75 (6.77) & 8.92 (4.21) & 1.31 (30.55) &\\ [1ex] 
  \hline
  \end{tabular}
+\end{adjustbox}
 \end{center}
 \end{table}
+
+
 
 
 
