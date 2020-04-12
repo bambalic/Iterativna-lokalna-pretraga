@@ -8,6 +8,7 @@
 \usepackage[T2A]{fontenc} % enable Cyrillic fonts
 \usepackage[utf8]{inputenc} % make weird characters work
 \usepackage{graphicx}
+\usepackage{fullwidth}
 
 \usepackage[english,serbian]{babel}
 %\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
@@ -91,7 +92,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\abstract{U ovom seminarskom radu prikazana je iterativna lokalna pretraga. Osnovna ideja ove metaheuristike je da se pretraga fokusira na samo deo mogućih rešenja koja dobija od ugrađene heuristike. 
+\abstract{Osnovna ideja ove metaheuristike je da se pretraga fokusira na samo deo mogućih rešenja koja dobija od ugrađene heuristike. 
 Iako jednostavna zbog svoje modularnosti, pokazuje odlične rezultate u praksi. U radu je prikazana njena implementacija, kao i pristup kojim se došlo do nje. 
 Takođe, prikazane su neke od primena ovog algoritma.}
 
@@ -127,9 +128,7 @@ modularnosti i pokušavamo da dekompozitujemo metaheuristički algoritam na neko
 Konkretno, želeli bismo imati potpuno opšti namenski deo, dok bi svako znanje specifično za problem ugrađeno u metaheuristiku
 bilo odvojeno u drugi deo. Konačno, u najvećoj mogućoj meri, radije ostavljamo netaknutu ugrađenu heuristiku (koju treba
 \q{voditi}) zbog svoje potencijalne složenosti. \textbf{Iterativna lokalna pretraga} pruža jednostavan način da se zadovolje svi
-ovi zahtevi.
-
-Suština iterativne lokalne pretrage je da se izbegne zaglavljivanje u lokalnom minimumu tako što u više iteracija primenjuje
+ovi zahtevi. Suština iterativne lokalne pretrage je da se izbegne zaglavljivanje u lokalnom minimumu tako što u više iteracija primenjuje
 lokalnu pretragu na novo generisano početno rešenje.
 
 Svrha ovog rada je da se prikaže detaljan opis iterativne lokalne pretrage.
@@ -159,7 +158,7 @@ Pretpostavimo da imamo algoritam za specifičan problem koji aproksimira optimal
 Taj algoritam ćemo zvati lokalna pretraga, iako to ne mora da bude \textit{prava} lokalna pretraga i  
 izvršavaćemo ga pozivanjem procedure \lokalna{}. Pitanje koje se postavlja jeste \q{Da li 
 ovaj algoritam može da se poboljša korišćenjem iteracije?}. Odgovor je da može, a rezultati dobijeni u praksi pokazuju 
-da je to poboljšanje u većini situacija značajno.\footnotemark
+da je to poboljšanje u većini situacija značajno \cite{beginnersIntroduction}.\footnotemark
 \footnotetext{U retkim slučajevima kada iterativni metod nije pogodan za dati algoritam poboljšanje će biti minimalno.} 
 
 Neka je $\mathcal{C}$ funkcija cene nekog problema optimizacije. Kao i u većini slučajeva kada se pominje funkcija cene,
@@ -170,7 +169,7 @@ iz skupa \S{} u \Sstar{} koji predstavlja skup lokalno optimalnih rešenja \ssta
 Osnovna ideja ILS \eng{iterated local search} tj. iterativne lokalne pretrage jeste da izbegne mane pokretanja lokalne pretrage iz nasumičnih delova prostora pretrage, 
 odnosno skupa \S{}. Ovako dobijena rešenja nisu međusobno zavisna i lokalnu pretragu treba pozivati na ovaj način samo kada druga rešenja ne daju bolje rezultate.\footnotemark
 \footnotetext{Iako se ovo retko dešava, ovaj pristup se u tim situacijama preporučuje zbog dobiti u jednostavnosti} 
-Uz to, kako se broj rešenja povećava, verovatnoća da nađemo kvalitetno \sstar{} opada, što u praksi znači da kada broj rešenja teži beskonačnosti kvalitetno, odnosno rešenje koje je blizu optimuma (globalnog) je 
+Uz to, kako se broj rešenja povećava, verovatnoća da nađemo kvalitetno \sstar{} opada, što u praksi znači da kada broj rešenja teži beskonačnosti, kvalitetno, odnosno rešenje koje je blizu optimuma (globalnog), je 
 nemoguće naći \cite{handbookOfMetaheuristics}. ILS se vodi idejom da umesto da koristi sva rešenja odnosno ona iz skupa \S{}, koristi samo podskup njih, odnosno skup \Sstar{}. 
 Cilj je da se krećemo kroz skup \Sstar{} i tako dođemo do globalnog optimuma ili bar rešenja bliskog njemu.
 Dakle, u svakoj iteraciji imamo trenutno rešenje \sstar{} na koje vršimo perturbaciju \eng{perturbation}, odnosno pomeramo se iz njega u međustanje 
@@ -185,8 +184,10 @@ Iterativnu lokalnu pretragu definišemo na način prikazan u algoritmu \ref{alg:
   \label{figure:iterativna}
 \end{figure}
 
-
-\begin{algorithm}
+% \begin{figure}[H]
+%   \centering
+\begin{fullwidth}[width=\linewidth,leftmargin=+\textwidth/2-\linewidth/2]
+\begin{algorithm}[H]
   \caption{Iterativna lokalna pretraga}
   \label{alg:1}
   \begin{algorithmic}
@@ -200,7 +201,8 @@ Iterativnu lokalnu pretragu definišemo na način prikazan u algoritmu \ref{alg:
   \RETURN \textsc{najbolje rešenje}
   \end{algorithmic}
   \end{algorithm}
-
+\end{fullwidth}
+% \end{figure}
 \footnotetext{\textsc{uslov zaustavljanja} je obično dozvoljeno vreme izvršavanja programa \eng{runtime} ili broja iteracija}
 \section{Implementacija iterativne lokalne pretrage}
 Kao što možemo da vidimo iz prethodnog, da bismo implementirali algoritam tj. iterativnu lokalnu pretragu, 
@@ -211,7 +213,7 @@ potrebno je da implementiramo četiri komponente: \generisi{}, \lokalna{}, \pert
 Početno rešenje može biti veoma važno, pogotovo ako nam je cilj što brži dolazak do kvalitetnih rešenja. 
 Generisanje početnih rešenja se može izvesti na dva načina. Možemo da koristimo (\romannumeral 1) metodu slučajnog izbora, 
 ili (\romannumeral 2) metodu pohlepne heuristike. U opštem slučaju, nije moguće reći koji metod od ova dva je bolji. Ipak, za kraća 
-izvršavanja ILS preporučuje se metoda pohlepne heuristike, dok prilikom dužeg izvršavanja ILS izbor početnog rešenja nije mnogo bitan \cite{beginnersIntroduction}.
+izvršavanja ILS preporučuje se metoda pohlepne heuristike, dok prilikom dužeg izvršavanja ILS izbor početnog rešenja nije mnogo bitan \cite{beginnersIntroduction, online}.
 
 \subsection{Perturbacija}
 
@@ -222,7 +224,7 @@ onda će se algoritam ponašati kao prilikom pokretanja lokalne pretrage iz nasu
 poništiti perturbaciju i kao novo rešenje 
 naći ono od koga je krenula. Samim tim malo novih rešenja će biti istraženo. Ova veličina varira od problema do problema, a takođe zavisi i od veličine problema. 
 Ponašanje ILS u praksi pokazuje da ne postoji jedinstvena optimalna snaga perturbacije. Ona se može menjati tokom izvršavanja i tada koristimo adaptivne perturbacije. 
-Jedan način da se one implementiraju jeste korišćenjem istorije pretrage. Drugi način jeste determinističkim određivanjem tokom izvršavanja.
+Jedan način da se one implementiraju jeste korišćenjem istorije pretrage. Drugi način jeste determinističkim određivanjem tokom izvršavanja \cite{handbookOfMetaheuristics, beginnersIntroduction}.
 
 \subsection{Kriterijum prihvatanja}
 
@@ -236,12 +238,12 @@ Mnogi pristupi između ova dva su svakako mogući i često korišćeni. \\
 \kriterijum{} ima jak uticaj na prirodu korišćenih rešenja. Naime, u kombinaciji sa \perturbacija{}, može da se 
 koristi za kontrolu ravnoteže između intenzifikacije\footnote{Prihvatanjem samo boljih rešenja, smanjićemo prostor pretrage i pretraživati rešenja u trenutnoj okolini} \eng{intensification} 
 i diverzifikacije\footnote{Prihvatanjem svih rešenja, povećavamo prostor pretrage i imamo veliki broj rešenja, ali često pretražujemo okoline sa lošim rešenjima} \eng{diversification}. Kao i kod perturbacije 
-možemo koristiti istoriju pretrage za dinamičko određivanje kriterijuma prihvatanja.
+možemo koristiti istoriju pretrage za dinamičko određivanje kriterijuma prihvatanja \cite{handbookOfMetaheuristics, beginnersIntroduction}. 
 
 \subsection{Lokalna pretraga}
 
 Do sada smo lokalnu pretragu koju koristi ILS koristili kao crnu kutiju \eng{black box}. Znali smo šta ta procedura radi ali nismo ulazili u detalje implementacije. Ipak, često nam je implementacija lokalne pretrage poznata 
-i to nam omogućava da dodatno optimizujemo ILS. Postoji mnogo algoritama koji mogu da se koriste kao lokalna pretraga. Može se pretpostaviti da što je bolja lokalna pretraga to je bolji ILS. To često jeste tačno ali postoje 
+i to nam omogućava da dodatno optimizujemo ILS. Postoji mnogo algoritama koji mogu da se koriste kao lokalna pretraga. Može se pretpostaviti da što je bolja lokalna pretraga to je bolji ILS. To često jeste tačno, ali postoje 
 situacije kada lošiji algoritam daje bolja rešenja. Jedna od tih situacije je kada imamo ograničeno vreme izvršavanja programa i tada je nekad bolje koristiti brži, u teoriji lošiji algoritam i pozvati ga mnogo više puta nego 
 bolji i sporiji algoritam. Zavisno od razlike u potrebnom vremenu, možemo dozvoliti više vremena za izvršavanje i koristiti bolji algoritam. Ako razlika u brzini dva algoritma nije velika, onda je obično isplativije koristiti bolji. 
 Za određene probleme, često se kao lokalna pretraga koristi metaheuristika poput tabu pretrage \eng{tabu search}, simuliranog kaljenja \eng{simulated annealing} itd \cite{handbookOfMetaheuristics}.
