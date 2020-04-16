@@ -395,7 +395,7 @@ gde je $Alg_{rez}$ rezultat dobijen korišćenjem nekog od algoritama za odgovar
     \begin{adjustbox}{max width=1.0\linewidth,center}
  \begin{tabular}{c c c c c c c} 
  \hline
- Problem & SAOP & Spirit & GAChen & GAMIT & ILS &\\ [0.5ex] 
+ Problem & SAOP & SPIRIT & GAChen & GAMIT & ILS &\\ [0.5ex] 
  \hline\hline
  20x5 & 1.39 ($\leq$0.5) & 5.22 ($\leq$0.5) & 3.82 ($\leq$0.5) & 4.21 ($\leq$0.5) & 0.24 (4.01) &\\ [1ex]
  \hline
@@ -430,7 +430,7 @@ gde je $Alg_{rez}$ rezultat dobijen korišćenjem nekog od algoritama za odgovar
 \end{table}
 
 
-
+Algoritmi koji su korišćeni u ovom testiranju su Osman-ov i Potts-ov SA\footnote{ \eng{Simulated annealing} - probabilistička tehnika za određivanje ekstremuma date funckije.} algoritam (SAOP), Widmer-ova i Hertz-ova procedura SPIRIT\footnote{ \eng{Streaming Pattern Discovry in Multiple Timeseries} - procedura pronalaženja aktuelnih šablona u višestrukim vremenskim serijama koja inkrementalno pronalazi korelacije i skrivene promenljive u numeričkim tokovima podataka.}, Chen-ov GA\footnote{ \eng{Genetic algorithm} - metaheuristički algoritam globalne optimizacije ili pretrage koji koristi tehnike inspirisane biologijom, odnosno genetske pojmove kao što su selekcija, mutacija, ukrštanje, nasleđivanje itd.} algoritam (GAChen), Hibridni GA sa lokalnom pretragom (GAMIT) koji je implementirao Murata, kao i ILS koju je implementirao Stützle radi poređenja rada ovih algoritama na konkretnom problemu.
 
 
 Ono što se može uvideti iz priložene \autoref{tab:alg}, da je ILS najefikasniji i daje najbolje rezultate, međutim, u proseku zahteva i najviše procesorskog vremena (malo više od pola minuta) i ovaj primer je tako konstruisan da nije zadato vremensko ograničenje rada algoritama na računaru. Međutim, ukoliko uvedemo kriterijum zaustavljanja, odnosno ograničimo procesorsko vreme, i u tom slučaju će ILS izaći kao pobednik.
