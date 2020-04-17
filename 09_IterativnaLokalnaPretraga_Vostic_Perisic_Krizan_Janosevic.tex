@@ -116,26 +116,13 @@ Takođe, prikazane su neke od primena ovog algoritma.}
 \section{Uvod}
 \label{sec:uvod}
 
-Važnost algoritama visokih performansi za rešavanje teških optimizacionih problema ne može se potceniti, i u mnogim
-slučajevima jedine dostupne metode su metaheuristike. Prilikom dizajniranja metaheuristike, poželjno je da bude jednostavna, i
-konceptualno i u praksi. Prirodno, takođe mora biti efikasna i, ako je moguće, opšte namene. Ako metaheuristiku posmatramo kao
-jednostavnu konstrukciju za usmeravanje (specifične za problem) heuristike, idealan slučaj je kada se metaheuristika može
-koristiti bez ikakvog znanja o zavisnosti od problema.
 
-Kako su metaheuristike postale sve sofisticiranije, ovaj idealan
-slučaj je gurnut u stranu u potrazi za većim performansama. Kao posledica toga, znanje specifično za problem mora biti
-inkorporirano u metaheuristiku da bi se dostiglo vrhunsko stanje. Nažalost, ovo čini granicu između heuristike i
-metaheuristike nejasnom, i mi rizikujemo da izgubimo i jednostavnost i opštost. Da bi se suprotstavili tome, približavamo se
-modularnosti i pokušavamo da dekompozitujemo metaheuristički algoritam na nekoliko delova, svaki sa svojom specifičnošću.
-Konkretno, želeli bismo imati potpuno opšti namenski deo, dok bi svako znanje specifično za problem ugrađeno u metaheuristiku
-bilo odvojeno u drugi deo. Konačno, u najvećoj mogućoj meri, radije ostavljamo netaknutu ugrađenu heuristiku (koju treba
-\q{voditi}) zbog svoje potencijalne složenosti. \textbf{Iterativna lokalna pretraga} pruža jednostavan način da se zadovolje svi
-ovi zahtevi. Suština iterativne lokalne pretrage je da se izbegne zaglavljivanje u lokalnom minimumu tako što u više iteracija primenjuje
-lokalnu pretragu na novo generisano početno rešenje.
-
-Svrha ovog rada je da se prikaže detaljan opis iterativne lokalne pretrage.
-Do sada je, uprkos svojoj konceptualnoj jednostavnosi, dovela do brojnih vrhunskih rezultata bez korišćenja previše znanja
-specifičnog za problem.
+Važnost algoritama visokih performansi za rešavanje teških optimizacionih problema ne može se potceniti i u mnogim slučajevima jedine dostupne metode su metaheuristike. Prilikom dizajniranja metaheuristike, poželjno je da bude jednostavna i konceptualno i u praksi. Prirodno, takođe mora biti efikasna i, ako je moguće, opšte namene. Ako metaheuristiku posmatramo kao
+jednostavnu konstrukciju za usmeravanje (specifične za problem) heuristike, idealan slučaj je kada se metaheuristika može koristiti bez ikakvog znanja o zavisnosti od problema.\par
+Kako su metaheuristike postale sve sofisticiranije, ovaj idealan slučaj je gurnut u stranu u potrazi za većim performansama. Kao posledica toga, znanje specifično za problem mora biti inkorporirano u metaheuristiku da bi se dostiglo vrhunsko stanje. Nažalost, ovo čini granicu između heuristike i metaheuristike nejasnom i mi rizikujemo da izgubimo i jednostavnost i opštost. Da bismo se suprotstavili tome, približavamo se modularnosti i pokušavamo da dekomponujemo metaheuristički algoritam na nekoliko delova, svaki sa svojom specifičnošću.
+Konkretno, želeli bismo imati potpuno opšti namenski deo, dok bi svako znanje specifično za problem ugrađeno u metaheuristiku bilo odvojeno u drugi deo. Konačno, u najvećoj mogućoj meri, radije ostavljamo netaknutu ugrađenu heuristiku (koju treba \q{voditi}) zbog svoje potencijalne složenosti. Iterativna lokalna pretraga \eng{Iterated Local Search - ILS} pruža jednostavan način da se zadovolje svi ovi zahtevi. Suština iterativne lokalne pretrage je da se izbegne zaglavljivanje u lokalnom minimumu tako što u više iteracija primenjuje lokalnu pretragu na novo generisano početno rešenje \cite{handbookOfMetaheuristics}. \par
+Ova ideja ima dugu istoriju, a njeno ponovno otkriće od strane mnogih autora dovelo je do mnogo različitih imena za iterativnu lokalnu pretragu poput iterativnog spusta \eng{Iterated Descent}, Markovi lanci velikog koraka \eng{Large-step Markov chains}, lančana lokalna optimizacija \eng{Chained local optimization}...\par
+Svrha ovog rada je da se prikaže detaljan opis iterativne lokalne pretrage. Do sada je, uprkos svojoj konceptualnoj jednostavnosti, dovela do brojnih vrhunskih rezultata bez korišćenja previše znanja specifičnog za problem.\par
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Kraj dela (za menjanje pitati autora ovog dela)
@@ -461,12 +448,11 @@ Zaključak je da, uz to što je poprililčno efikasan, što možemo primetiti sa
 \section{Zaključak}
 \label{sec:zakljucak}
 
-ILS poseduje mnoge poželjne karakteristike metaheuristike: jednostavan je, lagan za implementaciju, robustan i veoma efikasan. Suštinska ideja ILS-a leži u fokusiranju pretraživanja ne na celokupnom prostoru rešenja, već na manjem potprostoru koji je definisan rešenjima koja su lokalno optimalna za datu optimizaciju. Uspeh ILS-a leži u pristrasnom uzorkovanju ovog skupa lokalnih optimuma. Koliko će se ovaj pristup pokazati efikasnim, uglavnom zavisi od izbora lokalne pretrage, perturbacija i kriterijuma prihvatanja. Interesantno je da čak i kada se koriste naivne implementacije ovih delova, ILS može učiniti i mnogo bolje od slučajnog ponovnog pokretanja. Ali sa daljim radom takvim da su različiti moduli dobro prilagođeni trenutnom problemu, ILS može često postati konkurentan ili čak vrhunski algoritam. Ova dihotomija je važna jer se može izvršiti optimizacija algoritma progresivno, i tako se ILS može zadržati na bilo kojem željenom nivou jednostavnosti. Ovo, plus modularna priroda iterativne lokalne pretrage vodi do kratkog vremena razvoja i daje ILS-u prednost u odnosu na složenije metaheuristike. Kao primer toga, podsetimo se da ILS u osnovi tretira ugrađenu heuristiku kao crnu kutiju; tada je unapređivanje ILS-a da bi se iskoristio novi, bolji algoritam lokalne pretrage skoro neposredan. Zbog svih ovih karakteristika verujemo da je ILS obećavajući i moćan algoritam za rešavanje stvarnih kompleksnih problema u industriji i uslugama, u oblastima od finansija do upravljanja proizvodnjom i logistikom.
-
+ILS poseduje mnoge poželjne karakteristike metaheuristike: jednostavan je, lagan za implementaciju, robustan i veoma efikasan. Suštinska ideja ILS-a leži u fokusiranju pretraživanja ne na celokupnom prostoru rešenja, već na manjem potprostoru koji je definisan rešenjima koja su lokalno optimalna za datu optimizaciju. Uspeh ILS-a leži u pristrasnom uzorkovanju ovog skupa lokalnih optimuma. Koliko će se ovaj pristup pokazati efikasnim, uglavnom zavisi od izbora lokalne pretrage, perturbacija i kriterijuma prihvatanja. Zbog svojih karakteristika verujemo da je ILS obećavajući i moćan algoritam za rešavanje stvarnih kompleksnih problema u industriji i uslugama, u oblastima od finansija do upravljanja proizvodnjom i logistikom.\par
 Za kraj, imajmo na umu da iako je sav ovaj pregled dat u kontekstu rešavanja problema kombinatorne optimizacije, u stvarnosti se veći deo onoga što smo obuhvatili može direktno preneti na probleme kontinuirane optimizacije. Gledajući unapred prema budućim pravcima istraživanja, očekujemo da će se ILS primeniti na nove vrste problema. Neki izazovni primeri su: (i) problemi gde su ograničenja vrlo ozbiljna i zato većina metaheuristika ne uspeva; (ii) višekriterijumski \eng{multi-objective} problemi, približavanje stvarnim problemima; (iii) dinamički problemi ili problemi u realnom vremenu \eng{real-time} u kojima podaci problema variraju tokom procesa rešavanja.
 Istraživanje ovih problema je jedva počelo, ali trebalo bi da dovede do algoritama lokalnog pretraživanja visokih performansi.
 
-\clearpage 
+%\clearpage 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Kraj dela (za menjanje pitati autore ovog dela)
