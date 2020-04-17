@@ -329,11 +329,11 @@ Algoritam je zasnovan na vrlo jednostavnoj implemetaciji lokalne pretrage. Poče
 \begin{itemize}
   \item zamenom koja razmenjuje pozicije susednih poslova \\
 	\begin{gather*}
-	 \pi = (\pi(1),..., \pi(i), \pi(i+1),..., \pi(n)) \rightarrow \pi\prime =  ( \pi(1),...,  \pi(i+1),  \pi(i),...,  \pi(n))
-	\end{gather*}
+	 \pi = (\pi(1),..., \pi(i), \pi(i+1),..., \pi(n)) \rightarrow \\\pi\prime =  ( \pi(1),...,  \pi(i+1),  \pi(i),...,  \pi(n))
+  \end{gather*}
   \item razmena proizvoljnih poslova koji nemaju nikakva ogranicenja na susedne \\
 	\begin{gather*}
-	 \pi = (\pi(1),..., \pi(i),..., \pi(j),..., \pi(n)) \rightarrow \pi\prime =  ( \pi(1),...,  \pi(j),...,  \pi(i),...,  \pi(n))
+	 \pi = (\pi(1),..., \pi(i),..., \pi(j),..., \pi(n)) \rightarrow \\\pi\prime =  ( \pi(1),...,  \pi(j),...,  \pi(i),...,  \pi(n))
 	\end{gather*}
 \end{itemize}
 Naime, ustanovljeno je da ovakva perturbacija, sa samo nekoliko poteza može dovesti do poprilično dobrih rezultata.
@@ -372,7 +372,7 @@ Svi algoritmi su implementirani pod istim uslovima i pokretani na istoj mašini:
 Koristićemo instance koje je ustanovio Taillard, odnosno različite kombinacije poslova (20, 50, 100, 200, 500) sa datim mašinama (5, 10, 20) za koje je ustanovljeno da su izuzetno teški problemi pa samim time su i dobri primeri merila algoritama. Parametar po kojem ćemo upoređivati algoritme je dat sledećom formulom:
 
 \begin{gather*}
-\textrm{\% Vremenskog uvećanja u odnosu na optimalno rešenje} = \frac{Alg_{rez} - Opt_{rez}}{Opt_{rez}} \cdot100
+\textrm{\% Vremenskog uvećanja u odnosu na optimalno rešenje} = \\\frac{Alg_{rez} - Opt_{rez}}{Opt_{rez}} \cdot100
 \end{gather*}
 gde je $Alg_{rez}$ rezultat dobijen korišćenjem nekog od algoritama za odgovarajuću instancu, a $Opt_{rez}$ je optimalno rešenje date instance. Ono što se odmah može primetiti jeste da ukoliko je ovaj procenat visok, to znači da se algoritam ponaša loše, jer za toliko odstupa od optimalnog rezultata.
 \\
