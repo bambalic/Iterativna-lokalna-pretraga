@@ -122,7 +122,7 @@ jednostavnu konstrukciju za usmeravanje (specifične za problem) heuristike, ide
 Kako su metaheuristike postale sve sofisticiranije, ovaj idealan slučaj je gurnut u stranu u potrazi za većim performansama. Kao posledica toga, znanje specifično za problem mora biti inkorporirano u metaheuristiku da bi se dostiglo vrhunsko stanje. Nažalost, ovo čini granicu između heuristike i metaheuristike nejasnom i mi rizikujemo da izgubimo i jednostavnost i opštost. Da bismo se suprotstavili tome, približavamo se modularnosti i pokušavamo da dekomponujemo metaheuristički algoritam na nekoliko delova, svaki sa svojom specifičnošću.
 Konkretno, želeli bismo imati potpuno opšti namenski deo, dok bi svako znanje specifično za problem ugrađeno u metaheuristiku bilo odvojeno u drugi deo. Konačno, u najvećoj mogućoj meri, radije ostavljamo netaknutu ugrađenu heuristiku (koju treba \q{voditi}) zbog svoje potencijalne složenosti. Iterativna lokalna pretraga \eng{Iterated Local Search - ILS} pruža jednostavan način da se zadovolje svi ovi zahtevi. Suština iterativne lokalne pretrage je da se izbegne zaglavljivanje u lokalnom minimumu tako što u više iteracija primenjuje lokalnu pretragu na novo generisano početno rešenje \cite{handbookOfMetaheuristics}. \par
 Ova ideja ima dugu istoriju, a njeno ponovno otkriće od strane mnogih autora dovelo je do mnogo različitih imena za iterativnu lokalnu pretragu poput iterativnog spusta \eng{Iterated Descent} \cite{baum1986iterated, baum1986towards}, Markovljevi lanci velikog koraka \eng{Large-step Markov chains} \cite{largeStepMarkovChains}, iterativni Lin-Kernigan \eng{iterated Lin-Kernighan} \cite{iteratedLinKernighan}, lančana lokalna optimizacija \eng{Chained local optimization} \cite{chainedLocalOptimization}, itd. \cite{handbookOfMetaheuristics} 
-Pregled i unifikacija mnogih prethodnih radova je urađena od strane Lourenço i dr u \cite{handbookOfMetaheuristics1}. Pregled naziva kroz istoriju se može videti u \autoref{tab:istorija} \cite{conciseReview}.\par 
+Pregled i unifikacija mnogih prethodnih radova je urađena od strane Lourenço i dr u \cite{handbookOfMetaheuristics1}. Pregled naziva kroz istoriju se može videti u tabeli \ref{tab:istorija} \cite{conciseReview}.\par 
 \begin{table}[H]
   \caption{Pregled naziva iterativne lokalne pretrage kroz istoriju}
   \label{tab:istorija}
@@ -408,53 +408,53 @@ Koristićemo instance koje je ustanovio Taillard, odnosno različite kombinacije
 gde je $Alg_{rez}$ rezultat dobijen korišćenjem nekog od algoritama za odgovarajuću instancu, a $Opt_{rez}$ je optimalno rešenje date instance. Ono što se odmah može primetiti jeste da ukoliko je ovaj procenat visok, to znači da se algoritam ponaša loše, jer za toliko odstupa od optimalnog rezultata.
 \\
 
-\begin{table}[H]
-\caption{Prosečni porast vremena potrebnog za izvršavanje u odnosu na najbolje poznato rešenje izraženo u procentima i prosečno procesorsko vreme u sekundama (navedeno u zagradi)
-\cite{aComprehensiveReviewAndEvaluationOfPermutationFlowshopHeuristics}}
-\label{tab:alg}
-\begin{center}
-    \begin{adjustbox}{max width=1.0\linewidth,center}
- \begin{tabular}{c c c c c c c} 
- \hline
- Problem & SAOP & SPIRIT & GAChen & GAMIT & ILS &\\ [0.5ex] 
- \hline\hline
- 20x5 & 1.39 ($\leq$0.5) & 5.22 ($\leq$0.5) & 3.82 ($\leq$0.5) & 4.21 ($\leq$0.5) & 0.24 (4.01) &\\ [1ex]
- \hline
- 20x10 & 2.66 ($\leq$0.5) & 5.86 ($\leq$0.5) & 4.89 ($\leq$0.5) & 5.40 ($\leq$0.5) & 0.77 (4.09) &\\ [1ex]
- \hline
- 20x20 & 2.31 ($\leq$0.5) & 4.58 ($\leq$0.5) & 4.17 (0.60) & 4.53 ($\leq$0.5) & 0.85 (4.63) &\\ [1ex]
- \hline
- 50x5 & 0.69 ($\leq$0.5) & 2.03 ($\leq$0.5) & 2.09 (0.77) & 3.11 ($\leq$0.5) & 0.12 (6.38) &\\ [1ex]
- \hline
- 50x10 & 4.25 (0.60) & 5.88 (0.52) & 6.60 (1.00) & 8.38 (0.52) & 2.01 (9.94) &\\ [1ex] 
- \hline
- 50x20 & 5.13 (1.04) & 7.21 (0.97) & 8.03 (1.45) & 10.65 (0.96) & 3.29 (11.82) &\\ [1ex] 
- \hline
- 100x5 & 0.40 (0.60) & 1.06 (0.53) & 1.32 (1.79) & 5.41 (0.52) & 0.11 (15.31) &\\ [1ex] 
- \hline
- 100x10 & 1.88 (1.10) & 5.07 (1.03) & 3.75 (2.26) & 12.05 (1.02) & 0.66 (18.79) &\\ [1ex] 
- \hline
- 100x20 & 5.21 (2.09) & 10.15 (2.00) & 7.94 (3.24) &18.24 (1.99) & 3.17 (24.04) &\\ [1ex] 
- \hline
- 200x10 & 1.56 (2.29) & 9.03 (2.25) & 2.70 (5.97) & 7.52 (2.20) & 0.49 (33.73) &\\ [1ex] 
- \hline
- 200x20 & 4.83 (4.59) & 16.17 (4.51) & 7.07 (8.18) & 15.35 (4.50) & 2.74 (41.80) &\\ [1ex] 
- \hline
- 500x20 & 3.40 (39.48) & 13.57 (39.70) & 4.61 (55.30) & 12.17 (37.82) & 1.29 (192.03) &\\ [1ex] 
- \hline
- \hline
- Average & 2.81 (4.42) & 7.15 (4.38) & 4.75 (6.77) & 8.92 (4.21) & 1.31 (30.55) &\\ [1ex] 
- \hline
- \end{tabular}
-\end{adjustbox}
-\end{center}
-\end{table}
+% \begin{table}[H]
+% \caption{Prosečni porast vremena potrebnog za izvršavanje u odnosu na najbolje poznato rešenje izraženo u procentima i prosečno procesorsko vreme u sekundama (navedeno u zagradi)
+% \cite{aComprehensiveReviewAndEvaluationOfPermutationFlowshopHeuristics}}
+% \label{tab:alg}
+% \begin{center}
+%     \begin{adjustbox}{max width=1.0\linewidth,center}
+%  \begin{tabular}{c c c c c c c} 
+%  \hline
+%  Problem & SAOP & SPIRIT & GAChen & GAMIT & ILS &\\ [0.5ex] 
+%  \hline\hline
+%  20x5 & 1.39 ($\leq$0.5) & 5.22 ($\leq$0.5) & 3.82 ($\leq$0.5) & 4.21 ($\leq$0.5) & 0.24 (4.01) &\\ [1ex]
+%  \hline
+%  20x10 & 2.66 ($\leq$0.5) & 5.86 ($\leq$0.5) & 4.89 ($\leq$0.5) & 5.40 ($\leq$0.5) & 0.77 (4.09) &\\ [1ex]
+%  \hline
+%  20x20 & 2.31 ($\leq$0.5) & 4.58 ($\leq$0.5) & 4.17 (0.60) & 4.53 ($\leq$0.5) & 0.85 (4.63) &\\ [1ex]
+%  \hline
+%  50x5 & 0.69 ($\leq$0.5) & 2.03 ($\leq$0.5) & 2.09 (0.77) & 3.11 ($\leq$0.5) & 0.12 (6.38) &\\ [1ex]
+%  \hline
+%  50x10 & 4.25 (0.60) & 5.88 (0.52) & 6.60 (1.00) & 8.38 (0.52) & 2.01 (9.94) &\\ [1ex] 
+%  \hline
+%  50x20 & 5.13 (1.04) & 7.21 (0.97) & 8.03 (1.45) & 10.65 (0.96) & 3.29 (11.82) &\\ [1ex] 
+%  \hline
+%  100x5 & 0.40 (0.60) & 1.06 (0.53) & 1.32 (1.79) & 5.41 (0.52) & 0.11 (15.31) &\\ [1ex] 
+%  \hline
+%  100x10 & 1.88 (1.10) & 5.07 (1.03) & 3.75 (2.26) & 12.05 (1.02) & 0.66 (18.79) &\\ [1ex] 
+%  \hline
+%  100x20 & 5.21 (2.09) & 10.15 (2.00) & 7.94 (3.24) &18.24 (1.99) & 3.17 (24.04) &\\ [1ex] 
+%  \hline
+%  200x10 & 1.56 (2.29) & 9.03 (2.25) & 2.70 (5.97) & 7.52 (2.20) & 0.49 (33.73) &\\ [1ex] 
+%  \hline
+%  200x20 & 4.83 (4.59) & 16.17 (4.51) & 7.07 (8.18) & 15.35 (4.50) & 2.74 (41.80) &\\ [1ex] 
+%  \hline
+%  500x20 & 3.40 (39.48) & 13.57 (39.70) & 4.61 (55.30) & 12.17 (37.82) & 1.29 (192.03) &\\ [1ex] 
+%  \hline
+%  \hline
+%  Average & 2.81 (4.42) & 7.15 (4.38) & 4.75 (6.77) & 8.92 (4.21) & 1.31 (30.55) &\\ [1ex] 
+%  \hline
+%  \end{tabular}
+% \end{adjustbox}
+% \end{center}
+% \end{table}
 
 
-Algoritmi koji su korišćeni u ovom testiranju su Osman-ov i Potts-ov SA\footnote{ \eng{Simulated annealing} - probabilistička tehnika za određivanje ekstremuma date funckije.} algoritam (SAOP), Widmer-ova i Hertz-ova procedura SPIRIT\footnote{ \eng{Streaming Pattern Discovry in Multiple Timeseries} - procedura pronalaženja aktuelnih šablona u višestrukim vremenskim serijama koja inkrementalno pronalazi korelacije i skrivene promenljive u numeričkim tokovima podataka.}, Chen-ov GA\footnote{ \eng{Genetic algorithm} - metaheuristički algoritam globalne optimizacije ili pretrage koji koristi tehnike inspirisane biologijom, odnosno genetske pojmove kao što su selekcija, mutacija, ukrštanje, nasleđivanje itd.} algoritam (GAChen), Hibridni GA sa lokalnom pretragom (GAMIT) koji je implementirao Murata, kao i ILS koju je implementirao Stützle radi poređenja rada ovih algoritama na konkretnom problemu.
+% Algoritmi koji su korišćeni u ovom testiranju su Osman-ov i Potts-ov SA\footnote{ \eng{Simulated annealing} - probabilistička tehnika za određivanje ekstremuma date funckije.} algoritam (SAOP), Widmer-ova i Hertz-ova procedura SPIRIT\footnote{ \eng{Streaming Pattern Discovry in Multiple Timeseries} - procedura pronalaženja aktuelnih šablona u višestrukim vremenskim serijama koja inkrementalno pronalazi korelacije i skrivene promenljive u numeričkim tokovima podataka.}, Chen-ov GA\footnote{ \eng{Genetic algorithm} - metaheuristički algoritam globalne optimizacije ili pretrage koji koristi tehnike inspirisane biologijom, odnosno genetske pojmove kao što su selekcija, mutacija, ukrštanje, nasleđivanje itd.} algoritam (GAChen), Hibridni GA sa lokalnom pretragom (GAMIT) koji je implementirao Murata, kao i ILS koju je implementirao Stützle radi poređenja rada ovih algoritama na konkretnom problemu.
 
 
-Ono što se može uvideti iz priložene \autoref{tab:alg}, da je ILS najefikasniji i daje najbolje rezultate, međutim, u proseku zahteva i najviše procesorskog vremena (malo više od pola minuta) i ovaj primer je tako konstruisan da nije zadato vremensko ograničenje rada algoritama na računaru. Međutim, ukoliko uvedemo kriterijum zaustavljanja, odnosno ograničimo procesorsko vreme, i u tom slučaju će ILS izaći kao pobednik.
+Ono što se može uvideti iz priložene tabele \ref{tab:alg} u dodatku \ref{sec:dodatak}, da je ILS najefikasniji i daje najbolje rezultate, međutim, u proseku zahteva i najviše procesorskog vremena (malo više od pola minuta) i ovaj primer je tako konstruisan da nije zadato vremensko ograničenje rada algoritama na računaru. Međutim, ukoliko uvedemo kriterijum zaustavljanja, odnosno ograničimo procesorsko vreme, i u tom slučaju će ILS izaći kao pobednik.
 
 Zaključak je da, uz to što je poprililčno efikasan, što možemo primetiti sa sprovedenih testova, on je takođe poprilično jednostavan za kodiranje, dosta jednostavniji od ostalih navedenih. Na to treba dodati i činjenicu da se ILS može unaprediti sa dosta moćnijom lokalnom pretragom.
 
@@ -498,6 +498,55 @@ Istraživanje ovih problema je jedva počelo, ali trebalo bi da dovede do algori
 \bibliography{seminarski} 
 \bibliographystyle{plain}
 
+\appendix
+\section{Dodatak}
+\label{sec:dodatak}
+
+\begin{table}[H]
+  \caption{Prosečni porast vremena potrebnog za izvršavanje u odnosu na najbolje poznato rešenje izraženo u procentima i prosečno procesorsko vreme u sekundama (navedeno u zagradi)
+  \cite{aComprehensiveReviewAndEvaluationOfPermutationFlowshopHeuristics}}
+  \label{tab:alg}
+  \begin{center}
+      \begin{adjustbox}{max width=1.0\linewidth,center}
+   \begin{tabular}{c c c c c c c} 
+   \hline
+   Problem & SAOP & SPIRIT & GAChen & GAMIT & ILS &\\ [0.5ex] 
+   \hline\hline
+   20x5 & 1.39 ($\leq$0.5) & 5.22 ($\leq$0.5) & 3.82 ($\leq$0.5) & 4.21 ($\leq$0.5) & 0.24 (4.01) &\\ [1ex]
+   \hline
+   20x10 & 2.66 ($\leq$0.5) & 5.86 ($\leq$0.5) & 4.89 ($\leq$0.5) & 5.40 ($\leq$0.5) & 0.77 (4.09) &\\ [1ex]
+   \hline
+   20x20 & 2.31 ($\leq$0.5) & 4.58 ($\leq$0.5) & 4.17 (0.60) & 4.53 ($\leq$0.5) & 0.85 (4.63) &\\ [1ex]
+   \hline
+   50x5 & 0.69 ($\leq$0.5) & 2.03 ($\leq$0.5) & 2.09 (0.77) & 3.11 ($\leq$0.5) & 0.12 (6.38) &\\ [1ex]
+   \hline
+   50x10 & 4.25 (0.60) & 5.88 (0.52) & 6.60 (1.00) & 8.38 (0.52) & 2.01 (9.94) &\\ [1ex] 
+   \hline
+   50x20 & 5.13 (1.04) & 7.21 (0.97) & 8.03 (1.45) & 10.65 (0.96) & 3.29 (11.82) &\\ [1ex] 
+   \hline
+   100x5 & 0.40 (0.60) & 1.06 (0.53) & 1.32 (1.79) & 5.41 (0.52) & 0.11 (15.31) &\\ [1ex] 
+   \hline
+   100x10 & 1.88 (1.10) & 5.07 (1.03) & 3.75 (2.26) & 12.05 (1.02) & 0.66 (18.79) &\\ [1ex] 
+   \hline
+   100x20 & 5.21 (2.09) & 10.15 (2.00) & 7.94 (3.24) &18.24 (1.99) & 3.17 (24.04) &\\ [1ex] 
+   \hline
+   200x10 & 1.56 (2.29) & 9.03 (2.25) & 2.70 (5.97) & 7.52 (2.20) & 0.49 (33.73) &\\ [1ex] 
+   \hline
+   200x20 & 4.83 (4.59) & 16.17 (4.51) & 7.07 (8.18) & 15.35 (4.50) & 2.74 (41.80) &\\ [1ex] 
+   \hline
+   500x20 & 3.40 (39.48) & 13.57 (39.70) & 4.61 (55.30) & 12.17 (37.82) & 1.29 (192.03) &\\ [1ex] 
+   \hline
+   \hline
+   Average & 2.81 (4.42) & 7.15 (4.38) & 4.75 (6.77) & 8.92 (4.21) & 1.31 (30.55) &\\ [1ex] 
+   \hline
+   \end{tabular}
+  \end{adjustbox}
+  \end{center}
+  \end{table}
+  
+  
+  Algoritmi koji su korišćeni u ovom testiranju su Osman-ov i Potts-ov SA\footnote{ \eng{Simulated annealing} - probabilistička tehnika za određivanje ekstremuma date funckije.} algoritam (SAOP), Widmer-ova i Hertz-ova procedura SPIRIT\footnote{ \eng{Streaming Pattern Discovry in Multiple Timeseries} - procedura pronalaženja aktuelnih šablona u višestrukim vremenskim serijama koja inkrementalno pronalazi korelacije i skrivene promenljive u numeričkim tokovima podataka.}, Chen-ov GA\footnote{ \eng{Genetic algorithm} - metaheuristički algoritam globalne optimizacije ili pretrage koji koristi tehnike inspirisane biologijom, odnosno genetske pojmove kao što su selekcija, mutacija, ukrštanje, nasleđivanje itd.} algoritam (GAChen), Hibridni GA sa lokalnom pretragom (GAMIT) koji je implementirao Murata, kao i ILS koju je implementirao Stützle radi poređenja rada ovih algoritama na konkretnom problemu.
+ 
 
 
 
