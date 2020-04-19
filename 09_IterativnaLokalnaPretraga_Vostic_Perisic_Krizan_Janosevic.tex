@@ -376,7 +376,7 @@ Osnovna verzija problema je data sa \textit{n} poslova koji imaju različita vre
   \centering
   \includegraphics[width=0.4\textwidth]{jobshop.png}
   \caption{Za razliku od FSP-a, ovde se poslovi ne izvršavaju po identičnom redosledu, već svaki posao ima unapred određenu putanju, odnosno redosled mašina na kojima će se izvršavati.}
-  \label{figure:fsp}
+  \label{figure:jssp}
 \end{figure}
 
 Jedan od načina pristupanja ovom problemu korišćenjem ILS je definisala H.R. Lourenço \cite{jobShopScheduling}. Naime, primenom ogromnog broja računarskih testova, tražio se način generisanja inicijalnih rešenja, nekoliko algoritama lokalne pretrage, korišćenje različitih perturbacija kao i tri kriterijuma prihvatanja, i ti testovi su se poredili. Uočeno je da incijalna rešenja imaju veoma mali uticaj na sam algoritam, dok su ostale komponente poprilično važne, i to posebno različiti načini formiranja koraka perturbacije. Njena šema formiranja perturbacije je zasnovana na definisanju jedno-mašinskog ili dvo-mašinskog potproblema fiksiranjem broja promenljivih u trenutnom rešenju i rešavanjem ovih potproblema nekom od heuristika ili nekim polinomijalnim algoritmima. Ovaj način će raditi dobro jer lokalna pretraga ne može poništiti perturbaciju, kao i to da se nakon perturbacije rešenja teže da budu poprilično dobra i takođe imaju \enquote*{nove} delove koji su optimizovani.
