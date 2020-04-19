@@ -326,7 +326,7 @@ Drugi ILS algoritam od 1997. godine su razvili Katayama i Narisha. Oni su uveli 
 \subsection{Problemi raspoređivanja}
 ILS se takođe može uspešno primeniti i na probleme raspoređivanja kao što su \textbf{problem rasporeda na jednoj mašini pomoću ukupnog kašnjenja sa težinskim koeficijentima} \eng{single machine total weighted tardiness problem} tj. SMTWTP,  \textbf{problem rasporeda n proizvoda na m mašina} \eng{flow shop problem} tj. FSP, \textbf{problem raspoređivanja poslova} \eng{job shop scheduling problem} tj. JSSP
 kao i mnogi drugi. Kako su engleski nazivi opšte prihvaćeni i poznati, njih ćemo u nastavku i koristiti.
-\subsubsection{Single Machine Total Weighted Tardiness Problem}
+\subsubsection{Single machine total weighted tardiness problem}
 SMTWTP je jedan od fundamentalnih kombinatornih problema optimizacije. Naime, problem se sastoji od skupa nezavisnih poslova sa različitim vremenima obrade, težinama (cenama), kao i rokovima do kad poslovi moraju biti završeni predviđenim da se obrađuju na jednoj datoj mašini. Ideja je minimalizovati ukupno kašnjenje sa datim težinskim koeficijentima čija je uloga da kvantifikuju važnost svakog posla ili označe troškove kašnjenja izvršavanja posla na mašini, odnosno utvrditi optimalan redosled izvršavanja ovih poslova na jednoj mašini.
 \cite{handbookOfMetaheuristics}
 
@@ -342,6 +342,7 @@ Kao kriterijum prihvatanja, uvodi se backtrack korak: nakon $\beta$ iteracija u 
 \subsubsection{Flow shop problem}
 U FSP-u imamo \textit{n} poslova koji treba da se izvrše na \textit{m} mašina u identičnom redosledu, gde je unapred određen niz operacija obrade na mašinama. Takođe, svaka mašina može da izvršava najviše jedan posao, kao i da svaki posao može biti izvršavan na najviše jednoj mašini. Važi uslov da drugi poslovi ne mogu prekidati poslove koji se izvršavaju na mašinama.  Postavlja se pitanje: na koji način treba pronaći permutaciju takvu da minimalizuje
 vreme završetka poslednjeg posla, odnosno pronaći odgovarajući redosled poslova koji će da optimizuje pojedine unapred određene operacije obrade.\cite{handbookOfMetaheuristics}
+\\Grafička ilustracija problema je izložen na slici \ref{figure:fsp}.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.4\textwidth]{flowshop.png}
@@ -372,6 +373,7 @@ ILS se takođe može koristiti i za rešavanje flow-shop problema korišćenjem 
 \subsubsection{Job shop scheduling problem}
 Problem raspoređivanja poslova (JSSP) je popularni problem optimizacije u informatici i operativnom istraživanju.
 Osnovna verzija problema je data sa \textit{n} poslova koji imaju različita vremena obrade i oni moraju da se rasporede na \textit{m} mašina različitih snaga. Svaki posao se sastoji od niza instrukcija koje se moraju izvršiti po unapred određenom redosledu kao i da se svaka instrukcija mora izvršiti na odgovarajućoj mašini. Neophodno je pronaći odgovarajuću permutaciju, odnosno redosled poslova koji će minimizovati ukupno vreme obrade\footnote{Odnosi se na period od početka obrade, pa do trenutka kad su svi poslovi završili obrađivanje}.
+\\Na slici \ref{figure:jssp} je predstavljena grafička ilustracija problema.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.4\textwidth]{jobshop.png}
