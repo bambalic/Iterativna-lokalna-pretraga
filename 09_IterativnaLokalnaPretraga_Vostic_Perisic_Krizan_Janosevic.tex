@@ -121,7 +121,33 @@ Važnost algoritama visokih performansi za rešavanje teških optimizacionih pro
 jednostavnu konstrukciju za usmeravanje (specifične za problem) heuristike, idealan slučaj je kada se metaheuristika može koristiti bez ikakvog znanja o zavisnosti od problema.\par
 Kako su metaheuristike postale sve sofisticiranije, ovaj idealan slučaj je gurnut u stranu u potrazi za većim performansama. Kao posledica toga, znanje specifično za problem mora biti inkorporirano u metaheuristiku da bi se dostiglo vrhunsko stanje. Nažalost, ovo čini granicu između heuristike i metaheuristike nejasnom i mi rizikujemo da izgubimo i jednostavnost i opštost. Da bismo se suprotstavili tome, približavamo se modularnosti i pokušavamo da dekomponujemo metaheuristički algoritam na nekoliko delova, svaki sa svojom specifičnošću.
 Konkretno, želeli bismo imati potpuno opšti namenski deo, dok bi svako znanje specifično za problem ugrađeno u metaheuristiku bilo odvojeno u drugi deo. Konačno, u najvećoj mogućoj meri, radije ostavljamo netaknutu ugrađenu heuristiku (koju treba \q{voditi}) zbog svoje potencijalne složenosti. Iterativna lokalna pretraga \eng{Iterated Local Search - ILS} pruža jednostavan način da se zadovolje svi ovi zahtevi. Suština iterativne lokalne pretrage je da se izbegne zaglavljivanje u lokalnom minimumu tako što u više iteracija primenjuje lokalnu pretragu na novo generisano početno rešenje \cite{handbookOfMetaheuristics}. \par
-Ova ideja ima dugu istoriju, a njeno ponovno otkriće od strane mnogih autora dovelo je do mnogo različitih imena za iterativnu lokalnu pretragu poput iterativnog spusta \eng{Iterated Descent} \cite{baum1986iterated, baum1986towards}, Markovljevi lanci velikog koraka \eng{Large-step Markov chains} \cite{largeStepMarkovChains}, iterativni Lin-Kernigan \eng{iterated Lin-Kernighan} \cite{iteratedLinKernighan}, lančana lokalna optimizacija \eng{Chained local optimization} \cite{chainedLocalOptimization}, itd. \cite{handbookOfMetaheuristics}\par
+Ova ideja ima dugu istoriju, a njeno ponovno otkriće od strane mnogih autora dovelo je do mnogo različitih imena za iterativnu lokalnu pretragu poput iterativnog spusta \eng{Iterated Descent} \cite{baum1986iterated, baum1986towards}, Markovljevi lanci velikog koraka \eng{Large-step Markov chains} \cite{largeStepMarkovChains}, iterativni Lin-Kernigan \eng{iterated Lin-Kernighan} \cite{iteratedLinKernighan}, lančana lokalna optimizacija \eng{Chained local optimization} \cite{chainedLocalOptimization}, itd. \cite{handbookOfMetaheuristics} 
+Pregled i unifikacija mnogih prethodnih radova je urađena od strane Lourenço i dr u \cite{handbookOfMetaheuristics1}. Pregled naziva kroz istoriju se može videti u \autoref{tab:istorija} \cite{conciseReview}.\par 
+\begin{table}[H]
+  \caption{Pregled naziva iterativne lokalne pretrage kroz istoriju}
+  \label{tab:istorija}
+  \begin{center}
+      \begin{adjustbox}{max width=1.0\linewidth,center}
+   \begin{tabular}{|c| c |} 
+   \hline
+   Godina & Naziv\\ [0.5ex] 
+   \hline\hline
+   1986. & Iterativni spust\\
+   \hline
+   1990. & Iterativni Lin-Kernigan\\
+   \hline
+   1991. & Markovljevi lanci velikog koraka\\
+   \hline
+   1991. & Iterativno pretraživanje usponom\\
+   \hline
+   1996. & Lančana lokalna optimizacija\\
+   \hline
+   2003. & Lančani Lin-Kernigan\\
+   \hline
+   \end{tabular}
+  \end{adjustbox}
+  \end{center}
+  \end{table}
 Svrha ovog rada je da se prikaže detaljan opis iterativne lokalne pretrage. Do sada je, uprkos svojoj konceptualnoj jednostavnosti, dovela do brojnih vrhunskih rezultata bez korišćenja previše znanja specifičnog za problem.\par
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -279,7 +305,7 @@ Njihovi testovi su vršeni na velikim instancama do čak 25 miliona gradova. Za 
 Osim ovih radova, predložena su još dva ILS algoritma za problem trgovačkog putnika. Thomas Stützle je ispitao ponašanje ILS algoritma za problem trgovačkog putnika, i zaključio da ILS algoritmi stagniraju tokom dugog perioda izvođenja, što je i očekivano pri vršenju intenzivnog pretraživanja. Da bi se izbeglo stagniranje, predloženo je ponovno pokretanje i poseban kriterijum prihvatanja zbog variranja pretrage. Cilj te strategije je da pretraga nastavi od pozicije koja je veća od određenog minimalnog rastojanja od trenutne pozicije. Rezultati pokazuju da je ova metoda veoma efikasna, čak i kada se koristi samo 3-opt lokalna pretraga. 
 
 
-Drugi ILS algoritam od 1997. godine su razvili Katayama i Marisha. Oni su uveli novi mehanizam perturbacije i nazvali su ga genetska transformacija. Mehanizam genetske transformacije koristi dva obilaska, jedan od njih predstavlja do sada najbolje rešenje, a drugi je obilazak koji je pronađen ranije u pretrazi. Eksperimenti sa iterativnim LK algoritmom koji koristi genetsku transformaciju umesto standardnog dvostrukog mosta pokazuju da je pristup vrlo efikasan. \cite{beginnersIntroduction}
+Drugi ILS algoritam od 1997. godine su razvili Katayama i Narisha. Oni su uveli novi mehanizam perturbacije i nazvali su ga genetska transformacija. Mehanizam genetske transformacije koristi dva obilaska, jedan od njih predstavlja do sada najbolje rešenje, a drugi je obilazak koji je pronađen ranije u pretrazi. Eksperimenti sa iterativnim LK algoritmom koji koristi genetsku transformaciju umesto standardnog dvostrukog mosta pokazuju da je pristup vrlo efikasan. \cite{handbookOfMetaheuristics}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
