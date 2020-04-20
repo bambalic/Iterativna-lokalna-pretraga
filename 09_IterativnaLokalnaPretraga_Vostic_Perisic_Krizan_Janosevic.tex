@@ -279,7 +279,7 @@ Za određene probleme, često se kao lokalna pretraga koristi metaheuristika pop
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Primene iterativne lokalne pretrage}
 ILS algoritmi su uspešno primenjeni u raznim kombinatornim optimizacionim problemima. U određenim slučajevima ovi algoritmi dostižu veoma visoke performanse. U ovom poglavlju prikazaćemo neke najčešće probleme.
-\subsection{Problem trgovačkog putika}
+\subsection{Problem trgovačkog putnika}
 Za dat skup gradova i cena putovanja između svaka dva grada, koja je najjeftinija ruta koja obilazi svaki grad tačno jednom, i vraća se u početni grad? Ovo pitanje postavlja problem trgovačkog putika. Ovaj problem izražen u terminima teorije grafova glasi: Za dat težinski graf (čiji čvorovi predstavljaju gradove, grane puteve između njih, a težine cenu putovanja) naći Hamiltonov ciklus najmanje težine.
 
 Problem trgovačkog putnika je verovatno najpoznatiji kombinatorni optimizacijski problem. U suštini, on služi za testiranje izrade novih ideja algoritama, a dobre performanse na problemu trgovačkog putnika se uzimaju kao dokaz vrednosti takvih ideja. Kao i mnoge metaheuristike, neki od prvih ILS algoritama su testirani na ovom problemu. 
@@ -342,7 +342,7 @@ Kao kriterijum prihvatanja, uvodi se backtrack korak: nakon $\beta$ iteracija u 
 \subsubsection{Flow shop problem}
 U FSP-u imamo \textit{n} poslova koji treba da se izvrše na \textit{m} mašina u identičnom redosledu, gde je unapred određen niz operacija obrade na mašinama. Takođe, svaka mašina može da izvršava najviše jedan posao, kao i da svaki posao može biti izvršavan na najviše jednoj mašini. Važi uslov da drugi poslovi ne mogu prekidati poslove koji se izvršavaju na mašinama.  Postavlja se pitanje: na koji način treba pronaći permutaciju takvu da minimalizuje
 vreme završetka poslednjeg posla, odnosno pronaći odgovarajući redosled poslova koji će da optimizuje pojedine unapred određene operacije obrade.\cite{handbookOfMetaheuristics}
-\\Grafička ilustracija problema je izložen na slici \ref{figure:fsp}.
+\\Grafička ilustracija problema je izložena na slici \ref{figure:fsp}.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.4\textwidth]{flowshop.png}
@@ -400,7 +400,7 @@ Drugi način su izložili Balas i Vazacopoulos koji bi koristio promenljivu heur
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Efektivnost i efikasnost ILS algoritma}
 U tabeli \ref{tab:alg} u dodatku \ref{sec:dodatak} ćemo demonstrirati rezultate poređenja različitih poznatih algoritama primenjenim na Flow shop problemu kao i samo ponašanja ILS-a u odnosu na ostale. \\
-Svi algoritmi su implementirani pod istim uslovima i pokretani na istoj mašini: programirani su na jeziku Delphi 6.0, pokretani na Athlon XP 1600+ (1400MHz) koriščenjem 512 MBytes RAM memorije. 
+Svi algoritmi su implementirani pod istim uslovima i pokretani na istoj mašini: programirani su na jeziku Delphi 6.0, pokretani na Athlon XP 1600+ (1400MHz) koriščenjem 512 MBajta RAM memorije. 
 
 Koristićemo instance koje je ustanovio Taillard, odnosno različite kombinacije poslova (20, 50, 100, 200, 500) sa datim mašinama (5, 10, 20) za koje je ustanovljeno da su izuzetno teški problemi pa samim time su i dobri primeri merila algoritama. Parametar po kojem ćemo upoređivati algoritme je dat sledećom formulom:
 
