@@ -174,28 +174,41 @@
 % \begin{frame}[fragile]\frametitle{Lokalna pretraga}
 
 % \end{frame}
-
 \section{Primene iterativne lokalne pretrage}
 \begin{frame}[fragile]\frametitle{Primene iterativne lokalne pretrage}
+Algoritmi iterativne lokalne pretrage su uspešno primenjeni u raznim kombinatornim optimizacionim problemima. Neki od njih su:
+\begin{itemize}
+   \item \textbf{problem trgovačkog putnika} \eng{travelling salesman problem} tj. TSP
+  \item \textbf{problem rasporeda na jednoj mašini pomoću ukupnog kašnjenja sa težinskim koeficijentima} \eng{single machine total weighted tardiness problem} tj. SMTWTP
+  \item \textbf{problem rasporeda n proizvoda na m mašina} \eng{flow shop problem} tj. FSP
+  \item \textbf{problem raspoređivanja poslova} \eng{job shop scheduling problem} tj. JSSP
+\end{itemize}
 
 \end{frame}
 
 \subsection{Problem trgovačkog putnika}
 \begin{frame}[fragile]\frametitle{Problem trgovačkog putnika}
+%smanji reci
+Za dat skup gradova i cena putovanja između njih, naći najjeftiniju rutu koja obilazi svaki grad tačno jednom, i vraća se u početni grad.
+\begin{itemize}
+  \item Verovatno najpoznatiji kombinatorni optimizacijski problem
+  \item Služi za testiranje izrade novih ideja algoritama, dobre performanse na ovom problemu su dokaz vrednosti takvih ideja
+  \item Baum je prvi testirao svoju metodu ponovljenog spusta na TSP, koristio je tehniku 2-opt kao heuristiku, nasumične 3-promene kao perturbacije, nezadovoljavajući rezultati
+  \item Algoritam Large-step Markov chain(tj. LSMC) doneo poboljšanja, korišćeno simulirano kaljenje kao optimizacija i Lin-Kernighan (tj. LK) heuristika. Autori Martin, Otto i Felten
+\end{itemize}
+\end{frame}
 
+%drugi slajd:
+\begin{frame}[fragile]\frametitle{Problem trgovačkog putnika}
+\begin{itemize}
+  \item  D.S.Johnson koristio LK kao lokalnu pretragu, naziv algoritma "iterated Lin-Kernighan" 
+  \item Applegate, Bixby, Chivatal i Cook implementirali lančani LK, vršili testove na instancama do 25 miliona gradova, zaključili su da najbolje performanse daje između ostalog i pohlepna heuristika
+  \item Katayama i Narisha u svoj algoritam uveli su novi mehanizam perturbacije-genetska transformacija koji koristi 2 obilaska
+  \item Iterativni LK koji koristi genetsku transformaciju umesto standardnog dvostrukog mosta pokazao je bolje rezultate
+\end{itemize}
 \end{frame}
 
 \subsection{Problemi raspoređivanja}
-\begin{frame}[fragile]\frametitle{Problemi raspoređivanja}
-ILS se takođe može uspešno primeniti i na probleme raspoređivanja kao što su:
-\begin{itemize}
-  \item \textbf{problem rasporeda na jednoj mašini pomoću ukupnog kašnjenja sa težinskim koeficijentima} \eng{single machine total weighted tardiness problem} tj. SMTWTP
-  \item \textbf{problem rasporeda n proizvoda na m mašina} \eng{flow shop problem} tj. FSP
-  \item \textbf{problem raspoređivanja poslova} \eng{job shop scheduling problem} tj. JSSP
-\end{itemize}
-kao i mnogi drugi.
-\end{frame}
-
 \subsubsection{Single machine total weighted tardiness problem}
 \begin{frame}[fragile]\frametitle{Single machine total weighted tardiness problem}
 Problem se sastoji od skupa nezavisnih poslova sa različitim vremenima obrade, težinama (cenama), kao i rokovima do kad poslovi moraju biti završeni predviđenim da se obrađuju na jednoj datoj mašini. \\
