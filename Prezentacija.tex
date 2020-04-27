@@ -17,6 +17,16 @@
 % \definecolor{beamer@green}{rgb}{0.5, 2, 0.5}
 % \setbeamercolor{structure}{fg=beamer@green}
 
+\usepackage{listings}
+\usepackage{verbatim}
+% \usepackage{pseudocode}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\floatname{algorithm}{Algoritam}
+% \newcommand\newf{\fontsize{9}{7.2}\selectfont}
+
 \def\dJ{{\fontencoding{T1}\selectfont\dj}}
 \def\Dj{{\fontencoding{T1}\selectfont\DJ}}
 
@@ -52,7 +62,8 @@
 
 \section*{Uvod}
 \begin{frame}[fragile]
-	\frametitle{Uvod}
+  \frametitle{Uvod}
+  % \newf
 	\begin{itemize}
 		\item Metaheurističke metode za rešavanje teških optimizacionih problema
 		\item Prilikom dizajniranja metaheuristike, poželjno je da bude jednostavna, efikasna, opšte namene
@@ -81,18 +92,59 @@
 \section{Ideja iza iterativne lokalne pretrage}
 \begin{frame}
 	\frametitle{Ideja iza iterativne lokalne pretrage} 
-
+  \begin{itemize}
+    \item Koristimo samo podskup rešenja, dobijen od lokalne pretrage
+    \begin{center}
+      \begin{minipage}{1\linewidth}
+        \begin{algorithm}[H]
+      \caption{Iterativna lokalna pretraga}
+      \label{alg:1}
+      \begin{algorithmic}
+      \STATE $\textit{s}_0$ = \generisi{}()
+      \STATE \sstar{} = \lokalna{}($\textit{s}_0$)
+      \REPEAT
+      \STATE \squote{} = \perturbacija{}(\sstar{}, \textit{istorija})
+      \STATE $\textit{s}^{*\prime}$ = \lokalna{}(\squote{})
+      \STATE \sstar{} = \kriterijum{}(\sstar{}, $\textit{s}^{*\prime}$, \textit{istorija})
+      \UNTIL \textsc{nije zadovoljen uslov zaustavljanja}\footnotemark
+      \RETURN \textsc{najbolje rešenje}
+      \end{algorithmic}
+      \end{algorithm}
+    \end{minipage}
+    \end{center}
+  \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------
 
 \section{Implementacija iterativne lokalne pretrage}
 \begin{frame}[fragile]\frametitle{Implementacija iterativne lokalne pretrage}
- 
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{slika.eps}
+    \begin{itemize}
+      \item Početno rešenje
+      \item Lokalna pretraga
+      \item Perturbacija
+      \item Kriterijum prihvatanja
+    \end{itemize}
+  \end{figure}
 \end{frame}
 
-% \subsection{Početno rešenje}
+\subsection{Početno rešenje i Perturbacija}
 \begin{frame}[fragile]\frametitle{Početno rešenje i Perturbacija}
-	\subsection{Početno rešenje}
+  Početno rešenje
+  \begin{itemize}
+    \item Najmanje uticaja na algoritam
+    \item Metoda slučajnog izbora
+    \item Metoda pohlepne heuristike
+  \end{itemize}
+  Perturbacija
+  \begin{itemize}
+    \item Veoma važna komponenta algoritma
+    \item Služe da se pobegne od lokalnog optimuma
+    \item Snaga perturbacije
+    \item Adaptivne perturbacije
+  \end{itemize}
 	\subsection{Perturbacija}
 
 \end{frame}
@@ -103,10 +155,19 @@
 % \end{frame}
 
 
-% \subsection{Kriterijum prihvatanja}
+\subsection{Kriterijum prihvatanja i Lokalna pretraga}
 \begin{frame}[fragile]\frametitle{Kriterijum prihvatanja i Lokalna pretraga}
-	\subsection{Kriterijum prihvatanja}
-	\subsection{Lokalna pretraga}
+	Kriterijum prihvatanja
+  \begin{itemize}
+    \item Prihvati svako rešenje
+    \item Prihvati samo bolje rešenje
+  \end{itemize}
+  Lokalna pretraga
+  \begin{itemize}
+    \item Poznavanje implementacije može nam pomoći prilikom optimizacije ILS
+    \item Najčešće važi da što je bolja pretraga to je bolji ILS
+    \item Mnogo različitih algoritama se koristi kao lokalna pretraga
+  \end{itemize}
 \end{frame}
 
 % \subsection{Lokalna pretraga}
