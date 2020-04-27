@@ -7,6 +7,8 @@
 \usepackage[flushleft]{threeparttable}
 \usepackage{csquotes}
 \usepackage[english,serbian]{babel}
+\usepackage{tabularx}
+\usepackage{adjustbox}
 \usetheme{Hannover}
 \usecolortheme{wolverine}
 % \setbeamertemplate{headline}{}
@@ -17,6 +19,19 @@
 
 \def\dJ{{\fontencoding{T1}\selectfont\dj}}
 \def\Dj{{\fontencoding{T1}\selectfont\DJ}}
+
+% my commands
+\newcommand{\q}[1]{``#1''}  %use this command for quoting
+\newcommand{\s}[0]{\textit{s}} %use this for italic s
+\newcommand{\sstar}[0]{$\textit{s}^*$}
+\newcommand{\squote}[0]{$\textit{s}^\prime$}
+\renewcommand{\S}[0]{$\mathcal{S}$} %use this for instead of $\mathcal{S}$
+\newcommand{\Sstar}[0]{$\mathcal{S}^{*}$}
+\newcommand{\eng}[1]{(\textit{eng.} #1)}
+\newcommand{\lokalna}[0]{\small{\texttt{LokalnaPretraga}}}
+\newcommand{\kriterijum}[0]{\small{\texttt{KriterijumPrihvatanja}}}
+\newcommand{\generisi}[0]{\small{\texttt{GenerišiPočetnoRešenje}}}
+\newcommand{\perturbacija}[0]{\small{\texttt{Perturbacija}}}
 
 \begin{document}
 \title{Iterativna lokalna pretraga}
@@ -30,6 +45,8 @@
 	\thispagestyle{empty}
 	\titlepage
 \end{frame}
+
+%-----------------------------------------------------------------
 
 %-----------------------------------------------------------------
 
@@ -110,14 +127,110 @@
 
 \subsection{Problemi raspoređivanja}
 \begin{frame}[fragile]\frametitle{Problemi raspoređivanja}
-	\subsubsection{Single machine total weighted tardiness problem}
-	\subsubsection{Flow shop problem}
-	\subsubsection{Job shop scheduling problem}
+ILS se takođe može uspešno primeniti i na probleme raspoređivanja kao što su:
+\begin{itemize}
+  \item \textbf{problem rasporeda na jednoj mašini pomoću ukupnog kašnjenja sa težinskim koeficijentima} \eng{single machine total weighted tardiness problem} tj. SMTWTP
+  \item \textbf{problem rasporeda n proizvoda na m mašina} \eng{flow shop problem} tj. FSP
+  \item \textbf{problem raspoređivanja poslova} \eng{job shop scheduling problem} tj. JSSP
+\end{itemize}
+kao i mnogi drugi.
 \end{frame}
+
+\subsubsection{Single machine total weighted tardiness problem}
+\begin{frame}[fragile]\frametitle{Single machine total weighted tardiness problem}
+Problem se sastoji od skupa nezavisnih poslova sa različitim vremenima obrade, težinama (cenama), kao i rokovima do kad poslovi moraju biti završeni predviđenim da se obrađuju na jednoj datoj mašini. \\
+\begin{itemize}
+  \item Početno rešenje se može generisati pomoću raznih heuristika konstrukcija (EDD, MDD, AU).
+  \item Perturbacija se sastoji od niza proizvoljnih nezavisnih poteza razmene: posao na poziciji \textit{i} se razmenjuje sa poslom na poziciji \textit{j}. Razmena \textit{i}, \textit{j} se ne preklapa sa razmenom \textit{k}, \textit{l} ukoliko važi:\\ min\{\textit{i}, \textit{j}\} $\geq$ max\{\textit{k}, \textit{l}\} ili obrnuto.
+  \item Kriterijum prihvatanja: backtrack korak, svako novo najbolje lokalno stanje se prihvata, algoritam se restartuje sa najboljim pronađenim rešenjem.
+\end{itemize}
+\end{frame}
+
+\subsubsection{Flow shop problem}
+\begin{frame}[fragile]\frametitle{Flow shop problem}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.2\textwidth]{flowshop.png}
+  \label{figure:fsp}
+\end{figure}
+\begin{itemize}
+  \item Početno stanje se generiše uz pomoć NEH heuristike.
+  \item Perturbacija se generiše pravljenjem pomoću dva različita tipa poteza: \\
+	\begin{itemize}
+ 		 \item \begin{figure}[h!]
+ 			 \centering
+  			 \includegraphics[width=0.8\textwidth]{f1.png}
+		            \label{figure:f1}
+			  \end{figure}
+		\item \begin{figure}[h!]
+ 			 \centering
+  			 \includegraphics[width=0.8\textwidth]{f2.png}
+		            \label{figure:f2}
+			  \end{figure}
+	\end{itemize}
+  \item Kriterijum prihvatanja: može se uvek birati stanje koje je bolje i da se ono zadrži, ili napredniji slučaj koji analizira novo stanje i prihvata ga korišćenjem odgovarajuće verovatnoće.
+\end{itemize}
+\end{frame}
+
+\subsubsection{Job shop scheduling problem}
+\begin{frame}[fragile]\frametitle{Job shop scheduling problem}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.2\textwidth]{jobshop.png}
+  \label{figure:jssp}
+\end{figure}
+Postoje razni pristupi ovom problemu, opisaćemo pristup koji je definisala H.R. Lourenço.
+\begin{itemize}
+  \item Početna rešenja imaju veoma mali uticaj na sam algoritam.
+  \item Formiranja perturbacije je zasnovano na definisanju jedno-mašinskog ili dvo-mašinskog potproblema fiksiranjem broja promenljivih u trenutnom rešenju i rešavanjem ovih potproblema nekom od heuristika ili nekim polinomijalnim algoritmima
+\end{itemize}
+\end{frame}
+
 
 \section{Efektivnost i efikasnost ILS algoritma}
 \begin{frame}[fragile]\frametitle{Efektivnost i efikasnost ILS algoritma}
 
+\begin{gather*}
+\textrm{\% Vremenskog uvećanja u odnosu na optimalno rešenje} = \\\frac{Alg_{rez} - Opt_{rez}}{Opt_{rez}} \cdot100
+\end{gather*}
+\begin{table}[H]
+  \label{tab:alg}
+  \begin{center}
+      \begin{adjustbox}{max width=0.5\linewidth,center}
+   \begin{tabular}{c c c c c c c} 
+   \hline
+   Problem & SAOP & SPIRIT & GAChen & GAMIT & ILS &\\ [0.5ex] 
+   \hline\hline
+   20x5 & 1.39 ($\leq$0.5) & 5.22 ($\leq$0.5) & 3.82 ($\leq$0.5) & 4.21 ($\leq$0.5) & 0.24 (4.01) &\\ [1ex]
+   \hline
+   20x10 & 2.66 ($\leq$0.5) & 5.86 ($\leq$0.5) & 4.89 ($\leq$0.5) & 5.40 ($\leq$0.5) & 0.77 (4.09) &\\ [1ex]
+   \hline
+   20x20 & 2.31 ($\leq$0.5) & 4.58 ($\leq$0.5) & 4.17 (0.60) & 4.53 ($\leq$0.5) & 0.85 (4.63) &\\ [1ex]
+   \hline
+   50x5 & 0.69 ($\leq$0.5) & 2.03 ($\leq$0.5) & 2.09 (0.77) & 3.11 ($\leq$0.5) & 0.12 (6.38) &\\ [1ex]
+   \hline
+   50x10 & 4.25 (0.60) & 5.88 (0.52) & 6.60 (1.00) & 8.38 (0.52) & 2.01 (9.94) &\\ [1ex] 
+   \hline
+   50x20 & 5.13 (1.04) & 7.21 (0.97) & 8.03 (1.45) & 10.65 (0.96) & 3.29 (11.82) &\\ [1ex] 
+   \hline
+   100x5 & 0.40 (0.60) & 1.06 (0.53) & 1.32 (1.79) & 5.41 (0.52) & 0.11 (15.31) &\\ [1ex] 
+   \hline
+   100x10 & 1.88 (1.10) & 5.07 (1.03) & 3.75 (2.26) & 12.05 (1.02) & 0.66 (18.79) &\\ [1ex] 
+   \hline
+   100x20 & 5.21 (2.09) & 10.15 (2.00) & 7.94 (3.24) &18.24 (1.99) & 3.17 (24.04) &\\ [1ex] 
+   \hline
+   200x10 & 1.56 (2.29) & 9.03 (2.25) & 2.70 (5.97) & 7.52 (2.20) & 0.49 (33.73) &\\ [1ex] 
+   \hline
+   200x20 & 4.83 (4.59) & 16.17 (4.51) & 7.07 (8.18) & 15.35 (4.50) & 2.74 (41.80) &\\ [1ex] 
+   \hline
+   500x20 & 3.40 (39.48) & 13.57 (39.70) & 4.61 (55.30) & 12.17 (37.82) & 1.29 (192.03) &\\ [1ex] 
+   \hline
+   \hline
+   Average & 2.81 (4.42) & 7.15 (4.38) & 4.75 (6.77) & 8.92 (4.21) & 1.31 (30.55) &\\ [1ex] 
+   \end{tabular}
+  \end{adjustbox}
+  \end{center}
+  \end{table}
 \end{frame}
 
 \section{Zaključak}
