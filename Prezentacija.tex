@@ -35,12 +35,29 @@
 
 \section*{Uvod}
 \begin{frame}[fragile]
-    \frametitle{Uvod}
+	\frametitle{Uvod}
+	\begin{itemize}
+		\item Metaheurističke metode za rešavanje teških optimizacionih problema
+		\item Prilikom dizajniranja metaheuristike, poželjno je da bude jednostavna, efikasna, opšte namene
+		\item Idealan slučaj je kada se metaheuristika može koristiti bez ikakvog znanja o zavisnosti od problema
+		\item Znanje specifično za problem mora biti inkorporirano u metaheuristiku da bi se dostiglo vrhunsko stanje
+		\item Pokušavamo da dekomponujemo metaheuristički algoritam na nekoliko delova:
+		\begin{itemize}
+			\item potpuno opšti namenski deo
+			\item svako znanje specifično za problem ugrađeno u metaheuristiku bilo bi odvojeno u drugi deo
+		\end{itemize}
+	\end{itemize}
 
 \end{frame}
+
 \section*{Uvod}
 \begin{frame}[fragile]
-    \frametitle{Uvod}
+	\frametitle{Uvod}
+	\begin{itemize}
+		\item Iterativna lokalna pretraga pruža jednostavan način da se zadovolje svi ovi zahtevi
+		\item Suština iterativne lokalne pretrage je da se izbegne zaglavljivanje u lokalnom minimumu tako što u više iteracija primenjuje lokalnu pretragu na novo generisano početno rešenje
+		\item Ova ideja ima dugu istoriju, a njeno ponovno otkriće od strane mnogih autora dovelo je do mnogo različitih imena za iterativnu lokalnu pretragu poput iterativnog spusta, Markovljevi lanci velikog koraka, iterativni Lin-Kernigan, lančana lokalna optimizacija...
+	\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------
@@ -105,6 +122,12 @@
 
 \section{Zaključak}
 \begin{frame}[fragile]\frametitle{Zaključak}
+	\begin{itemize}
+		\item ILS poseduje mnoge poželjne karakteristike metaheuristike: jednostavan je, lagan za implementaciju, robustan i veoma efikasan
+		\item Suštinska ideja ILS-a leži u fokusiranju pretraživanja ne na celokupnom prostoru rešenja, već na manjem potprostoru koji je definisan rešenjima koja su lokalno optimalna za datu optimizaciju
+		\item  Koliko će se ovaj pristup pokazati efikasnim, uglavnom zavisi od izbora lokalne pretrage, perturbacija i kriterijuma prihvatanja
+		\item Zbog svojih karakteristika verujemo da je ILS obećavajući i moćan algoritam za rešavanje stvarnih kompleksnih problema
+	\end{itemize}
 
 \end{frame}
 
