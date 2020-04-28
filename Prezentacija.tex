@@ -210,16 +210,6 @@ Za dat skup gradova i cena putovanja između njih, naći najjeftiniju rutu koja 
 \end{frame}
 
 \subsection{Problemi raspoređivanja}
-\subsubsection{Single machine total weighted tardiness problem}
-\begin{frame}[fragile]\frametitle{Single machine total weighted tardiness problem}
-Problem se sastoji od skupa nezavisnih poslova sa različitim vremenima obrade, težinama (cenama), kao i rokovima do kad poslovi moraju biti završeni predviđenim da se obrađuju na jednoj datoj mašini. \\
-\begin{itemize}
-  \item Početno rešenje se može generisati pomoću raznih heuristika konstrukcija (EDD, MDD, AU).
-  \item Perturbacija se sastoji od niza proizvoljnih nezavisnih poteza razmene: posao na poziciji \textit{i} se razmenjuje sa poslom na poziciji \textit{j}. Razmena \textit{i}, \textit{j} se ne preklapa sa razmenom \textit{k}, \textit{l} ukoliko važi:\\ min\{\textit{i}, \textit{j}\} $\geq$ max\{\textit{k}, \textit{l}\} ili obrnuto.
-  \item Kriterijum prihvatanja: backtrack korak, svako novo najbolje lokalno stanje se prihvata, algoritam se restartuje sa najboljim pronađenim rešenjem.
-\end{itemize}
-\end{frame}
-
 \subsubsection{Flow shop problem}
 \begin{frame}[fragile]\frametitle{Flow shop problem}
 \begin{figure}[h!]
